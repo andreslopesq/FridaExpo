@@ -1,0 +1,1953 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="configuracionModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="abonoagentes">
+    <Key>
+      <PropertyRef Name="index" />
+    </Key>
+    <Property Name="index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Folio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cliente" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Total" Type="double" Nullable="false" />
+    <Property Name="saldo" Type="double" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="acabadomp">
+    <Key>
+      <PropertyRef Name="idacabado" />
+    </Key>
+    <Property Name="idacabado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="acabado" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'def.configuracion.agentes' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="agentes">
+          <Property Name="ID" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" />
+          <Property Name="user" Type="varchar" MaxLength="125" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+  <EntityType Name="agentesventa">
+    <Key>
+      <PropertyRef Name="index" />
+    </Key>
+    <Property Name="index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="RFC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Curp" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="CP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="poblacion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="porcentaje" Type="double" Nullable="false" />
+    <Property Name="limite" Type="double" Nullable="false" />
+    <Property Name="plazoC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="radio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="movil" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="nombre_compl" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.almacen_av_pvf' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="almacen_av_pvf">
+    <Key>
+      <PropertyRef Name="id_agente_venta" />
+      <PropertyRef Name="modelo" />
+      <PropertyRef Name="codigob" />
+      <PropertyRef Name="inicial" />
+      <PropertyRef Name="exist" />
+      <PropertyRef Name="fecha" />
+      <PropertyRef Name="traspaso" />
+      <PropertyRef Name="traspasado" />
+      <PropertyRef Name="pzasxpaq" />
+    </Key>
+    <Property Name="id_agente_venta" Type="int" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="inicial" Type="int" Nullable="false" />
+    <Property Name="exist" Type="int" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="traspaso" Type="int" Nullable="false" />
+    <Property Name="traspasado" Type="int" Nullable="false" />
+    <Property Name="pzasxpaq" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="almacen_modelo">
+    <Key>
+      <PropertyRef Name="idalmacen" />
+    </Key>
+    <Property Name="idalmacen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="inicial" Type="int" Nullable="false" />
+    <Property Name="existencia" Type="int" Nullable="false" />
+    <Property Name="entrada" Type="int" Nullable="false" />
+    <Property Name="salida" Type="int" Nullable="false" />
+    <Property Name="final" Type="int" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="diferencia" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.almacenes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="almacenes">
+    <Key>
+      <PropertyRef Name="idalmacenes" />
+      <PropertyRef Name="modelo" />
+      <PropertyRef Name="nopiezas" />
+      <PropertyRef Name="faltante" />
+      <PropertyRef Name="corte" />
+      <PropertyRef Name="observacion" />
+      <PropertyRef Name="entrada" />
+      <PropertyRef Name="salida" />
+      <PropertyRef Name="devolucion" />
+      <PropertyRef Name="lavanderia" />
+    </Key>
+    <Property Name="idalmacenes" Type="int" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nopiezas" Type="int" Nullable="false" />
+    <Property Name="faltante" Type="int" Nullable="false" />
+    <Property Name="corte" Type="int" Nullable="false" />
+    <Property Name="observacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="entrada" Type="int" Nullable="false" />
+    <Property Name="salida" Type="int" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+    <Property Name="lavanderia" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="anclaagentes">
+    <Key>
+      <PropertyRef Name="Indexagente" />
+      <PropertyRef Name="IndexCliente" />
+    </Key>
+    <Property Name="Indexagente" Type="int" Nullable="false" />
+    <Property Name="IndexCliente" Type="int" Nullable="false" />
+    <Property Name="EstadoCliente" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="asignacion_av_pvf">
+    <Key>
+      <PropertyRef Name="id_asigavpv" />
+    </Key>
+    <Property Name="id_asigavpv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="noclientes" Type="int" Nullable="false" />
+    <Property Name="pzaspromv" Type="int" Nullable="false" />
+    <Property Name="paqpromv" Type="int" Nullable="false" />
+    <Property Name="porcentaje" Type="double" Nullable="false" />
+    <Property Name="id_agente_venta" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="catalogomp">
+    <Key>
+      <PropertyRef Name="indexmp" />
+    </Key>
+    <Property Name="indexmp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="idproveedor" Type="int" Nullable="false" />
+    <Property Name="existencia" Type="double" Nullable="false" />
+    <Property Name="apartado" Type="double" Nullable="false" />
+    <Property Name="costoh" Type="double" Nullable="false" />
+    <Property Name="costop" Type="double" Nullable="false" />
+    <Property Name="coston" Type="double" Nullable="false" />
+    <Property Name="pzasxemp" Type="int" Nullable="false" />
+    <Property Name="infoboton" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="iddepartamento" Type="int" Nullable="false" />
+    <Property Name="idacabado" Type="int" Nullable="false" />
+    <Property Name="min" Type="double" Nullable="false" />
+    <Property Name="max" Type="double" Nullable="false" />
+    <Property Name="medida" Type="double" Nullable="false" />
+    <Property Name="unidadm" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="color" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="foto1" Type="int" Nullable="false" />
+    <Property Name="foto2" Type="int" Nullable="false" />
+    <Property Name="foto3" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.catclaveprodserv' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="catclaveprodserv">
+    <Key>
+      <PropertyRef Name="idClaveProdServ" />
+      <PropertyRef Name="clave" />
+      <PropertyRef Name="descripcion" />
+    </Key>
+    <Property Name="idClaveProdServ" Type="int" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.catclaveunidad' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="catclaveunidad">
+    <Key>
+      <PropertyRef Name="idClaveUnidad" />
+      <PropertyRef Name="clave" />
+      <PropertyRef Name="descripcion" />
+    </Key>
+    <Property Name="idClaveUnidad" Type="int" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="catformapago">
+    <Key>
+      <PropertyRef Name="idFormaPago" />
+    </Key>
+    <Property Name="idFormaPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="concepto" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="catmetodopago">
+    <Key>
+      <PropertyRef Name="idMetodoPago" />
+    </Key>
+    <Property Name="idMetodoPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="concepto" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="catusocfdi">
+    <Key>
+      <PropertyRef Name="idUso" />
+    </Key>
+    <Property Name="idUso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="concepto" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.claves_estados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="claves_estados">
+    <Key>
+      <PropertyRef Name="c_Estado" />
+      <PropertyRef Name="c_Pais" />
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="c_Estado" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="c_Pais" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.clavesat_productos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="clavesat_productos">
+    <Key>
+      <PropertyRef Name="idclavesat_productos" />
+      <PropertyRef Name="claveProdServ" />
+      <PropertyRef Name="claveUnidad" />
+      <PropertyRef Name="codigob" />
+    </Key>
+    <Property Name="idclavesat_productos" Type="int" Nullable="false" />
+    <Property Name="claveProdServ" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="claveUnidad" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="Index" />
+    </Key>
+    <Property Name="Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Clientef" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Av" Type="bool" Nullable="false" />
+    <Property Name="DomicilioF" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="coloniaF" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cpF" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Plazo_Credito" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Limite_Credito" Type="double" Nullable="false" />
+    <Property Name="PoblacionF" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="RfcF" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="CurpF" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="TelF" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="radiof" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContactoF" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ContactoE" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DomicilioE" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="PoblacionE" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="TelE" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PaqE" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FaxE" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="EmailE" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="WebE" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="RecibeE" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ContactoT" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DomicilioT" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="PoblacionT" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="TelT" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="FaxT" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FechaE" Type="date" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="agente" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="movilf" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_agente_venta" Type="int" Nullable="false" />
+    <Property Name="status_solicitud" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="politica_descuento" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="clientes">
+    <Key>
+      <PropertyRef Name="idcliente" />
+    </Key>
+    <Property Name="idcliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cliente" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="direccionf" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="colonia" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="cp" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="poblacion" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="limite" Type="double" Nullable="false" />
+    <Property Name="saldo" Type="double" Nullable="false" />
+    <Property Name="rfc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="direccione" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="contacto" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="agente" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="plazo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="lp" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="abreviado" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="no_ext" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="no_int" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="referencia" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="municipio" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="pais" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="tipo_cliente" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idClasif" Type="int" Nullable="false" />
+    <Property Name="NumDeCuenta" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descuento" Type="double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="con_almacenes">
+    <Key>
+      <PropertyRef Name="idalmacenes" />
+    </Key>
+    <Property Name="idalmacenes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="hora" Type="time" Precision="0" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="nopiezas" Type="int" Nullable="false" />
+    <Property Name="tipo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="con_osmpa">
+    <Key>
+      <PropertyRef Name="idosmpa" />
+    </Key>
+    <Property Name="idosmpa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cantidadtotal" Type="double" Nullable="false" />
+    <Property Name="costototal" Type="double" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="fotod" Type="int" Nullable="false" />
+    <Property Name="fotot" Type="int" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="con_osmph">
+    <Key>
+      <PropertyRef Name="idosmph" />
+    </Key>
+    <Property Name="idosmph" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="canthabilitada" Type="double" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="maquila" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="etiquetap1" Type="double" Nullable="false" />
+    <Property Name="etiquetap2" Type="double" Nullable="false" />
+    <Property Name="etiquetapt" Type="double" Nullable="false" />
+    <Property Name="costototal" Type="double" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+    <Property Name="cantidadtotal" Type="double" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="factprop" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="con_pedidospvf">
+    <Key>
+      <PropertyRef Name="id_folio" />
+    </Key>
+    <Property Name="id_folio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="id_cliente" Type="int" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ciudad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_agente_venta" Type="int" Nullable="false" />
+    <Property Name="factrem" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="cantletra" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="nopzas" Type="int" Nullable="false" />
+    <Property Name="nopaq" Type="int" Nullable="false" />
+    <Property Name="fechav1" Type="date" Nullable="false" />
+    <Property Name="totalv1" Type="double" Nullable="false" />
+    <Property Name="fechav2" Type="date" Nullable="false" />
+    <Property Name="totalv2" Type="double" Nullable="false" />
+    <Property Name="fechav3" Type="date" Nullable="false" />
+    <Property Name="totalv3" Type="double" Nullable="false" />
+    <Property Name="direnvio" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="observacion" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="eliminar" Type="bool" Nullable="false" />
+    <Property Name="fecha_entrega" Type="date" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="conabonos_clientes">
+    <Key>
+      <PropertyRef Name="index" />
+    </Key>
+    <Property Name="index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FolioOS" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="NoEfectivoOper" Type="int" Nullable="false" />
+    <Property Name="NoChequeOper" Type="int" Nullable="false" />
+    <Property Name="NoChequeDocOper" Type="int" Nullable="false" />
+    <Property Name="NoDepositoOper" Type="int" Nullable="false" />
+    <Property Name="NoNotaCreditoOper" Type="int" Nullable="false" />
+    <Property Name="Efectivo" Type="double" Nullable="false" />
+    <Property Name="Cheque" Type="double" Nullable="false" />
+    <Property Name="Cheque_Documentado" Type="double" Nullable="false" />
+    <Property Name="Deposito" Type="double" Nullable="false" />
+    <Property Name="NotaCredito" Type="double" Nullable="false" />
+    <Property Name="eliminar" Type="bit" Nullable="false" />
+    <Property Name="saldo" Type="double" Nullable="false" />
+    <Property Name="FolioNC" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Cliente" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="NoDescuentoOper" Type="int" Nullable="false" />
+    <Property Name="Descuento" Type="double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="conabonos_clientes1">
+    <Key>
+      <PropertyRef Name="index" />
+    </Key>
+    <Property Name="index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FolioOS" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="NoEfectivoOper" Type="int" Nullable="false" />
+    <Property Name="NoChequeOper" Type="int" Nullable="false" />
+    <Property Name="NoChequeDocOper" Type="int" Nullable="false" />
+    <Property Name="NoDepositoOper" Type="int" Nullable="false" />
+    <Property Name="NoNotaCreditoOper" Type="int" Nullable="false" />
+    <Property Name="Efectivo" Type="double" Nullable="false" />
+    <Property Name="Cheque" Type="double" Nullable="false" />
+    <Property Name="Cheque_Documentado" Type="double" Nullable="false" />
+    <Property Name="Deposito" Type="double" Nullable="false" />
+    <Property Name="NotaCredito" Type="double" Nullable="false" />
+    <Property Name="eliminar" Type="bit" Nullable="false" />
+    <Property Name="saldo" Type="double" Nullable="false" />
+    <Property Name="FolioNC" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Cliente" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="NoDescuentoOper" Type="int" Nullable="false" />
+    <Property Name="Descuento" Type="double" Nullable="false" />
+    <Property Name="idagente" Type="int" Nullable="false" />
+    <Property Name="tipodocto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="movimiento" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idcliente" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="conentrada_almacen">
+    <Key>
+      <PropertyRef Name="idea" />
+    </Key>
+    <Property Name="idea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="idproveedor" Type="int" Nullable="false" />
+    <Property Name="plazocredito" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nopzas" Type="int" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="foliooea" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="foliooc1" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="foliooc2" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="foliooc3" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="foliooc4" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="foliooc5" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="foliofr1" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="foliofr2" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="foliofr3" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="foliofr4" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="foliofr5" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="observacion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="condicion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="conentradas">
+    <Key>
+      <PropertyRef Name="index" />
+    </Key>
+    <Property Name="index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nopiezas" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nopaq" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="hora" Type="time" Precision="0" Nullable="false" />
+    <Property Name="Nomodelos" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="almacen" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="saldos" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Empleado" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="lavanderia" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="confactura_electronica">
+    <Key>
+      <PropertyRef Name="idfe" />
+    </Key>
+    <Property Name="idfe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idcliente" Type="int" Nullable="false" />
+    <Property Name="idempresa" Type="int" Nullable="false" />
+    <Property Name="tipo_doc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="hora" Type="time" Precision="0" Nullable="false" />
+    <Property Name="forma_pago" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="lugar_exped" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="metodo_pago" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="no_cuenta" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="path_xml" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="subtotal" Type="double" Nullable="false" />
+    <Property Name="subtotal_desc" Type="double" Nullable="false" />
+    <Property Name="impuesto" Type="double" Nullable="false" />
+    <Property Name="descuento" Type="double" Nullable="false" />
+    <Property Name="motivo_desc" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="cant_letra" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="eliminar" Type="bool" Nullable="false" />
+    <Property Name="timbrado" Type="bool" Nullable="false" />
+    <Property Name="cancelado" Type="bool" Nullable="false" />
+    <Property Name="uuid" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="plazo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="folio" Type="int" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+    <Property Name="direccionEnvio" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="observaciones" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="conlotes">
+    <Key>
+      <PropertyRef Name="idconlote" />
+    </Key>
+    <Property Name="idconlote" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idmp" Type="int" Nullable="false" />
+    <Property Name="cantrollos" Type="int" Nullable="false" />
+    <Property Name="cantmts" Type="double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="connotacredito">
+    <Key>
+      <PropertyRef Name="Index" />
+    </Key>
+    <Property Name="Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FolioNC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FolioFR" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="Cliente" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Total" Type="double" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Letra" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Subtotal" Type="double" Nullable="false" />
+    <Property Name="Iva" Type="double" Nullable="false" />
+    <Property Name="Poblacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NoPzas" Type="int" Nullable="false" />
+    <Property Name="NoPaq" Type="int" Nullable="false" />
+    <Property Name="folio1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="folio2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="folio3" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="os1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="os2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="os3" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="c1" Type="date" Nullable="false" />
+    <Property Name="c2" Type="date" Nullable="false" />
+    <Property Name="c3" Type="date" Nullable="false" />
+    <Property Name="Observacion1" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Observacion2" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Observacion3" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="conorden_compra">
+    <Key>
+      <PropertyRef Name="idoc" />
+    </Key>
+    <Property Name="idoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="idproveedor" Type="int" Nullable="false" />
+    <Property Name="deptosol" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nopzas" Type="int" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="foliooc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="foliop1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="foliop2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="foliop3" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="foliop4" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fechae1" Type="date" Nullable="false" />
+    <Property Name="fechae2" Type="date" Nullable="false" />
+    <Property Name="fechae3" Type="date" Nullable="false" />
+    <Property Name="fechae4" Type="date" Nullable="false" />
+    <Property Name="observacion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="surtida" Type="bit" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="conorden_salida">
+    <Key>
+      <PropertyRef Name="indexfolio" />
+    </Key>
+    <Property Name="indexfolio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="foliofact" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="folio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="foliodocto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="cliente" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="cs" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ciudad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tipo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="vendedor" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="paqueteria" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="noguia" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="noguia1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fact_rem" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="letra" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="nopzas" Type="int" Nullable="false" />
+    <Property Name="nopaq" Type="int" Nullable="false" />
+    <Property Name="eliminar" Type="bool" Nullable="false" />
+    <Property Name="Genvio" Type="double" Nullable="false" />
+    <Property Name="TotalGE" Type="double" Nullable="false" />
+    <Property Name="Saldo" Type="double" Nullable="false" />
+    <Property Name="Abono" Type="double" Nullable="false" />
+    <Property Name="DiasC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FechaV" Type="date" Nullable="false" />
+    <Property Name="almacen" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="observacion" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="conos_conpvf">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_relacion" Type="int" Nullable="false" />
+    <Property Name="indexfolio" Type="int" Nullable="false" />
+    <Property Name="id_folio" Type="int" Nullable="false" />
+    <Property Name="id_remision" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="conpedidos">
+    <Key>
+      <PropertyRef Name="folio" />
+    </Key>
+    <Property Name="folio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="Total" Type="double" Nullable="false" />
+    <Property Name="TotalSurtido" Type="double" Nullable="false" />
+    <Property Name="SNopaq" Type="int" Nullable="false" />
+    <Property Name="SNopzas" Type="int" Nullable="false" />
+    <Property Name="Nopaq" Type="int" Nullable="false" />
+    <Property Name="NoPzas" Type="int" Nullable="false" />
+    <Property Name="cantidadletra" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="cliente" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="poblacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="rfc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="curp" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="eliminar" Type="bool" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idcliente" Type="int" Nullable="false" />
+    <Property Name="idusuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="conrecibos">
+    <Key>
+      <PropertyRef Name="idrecibo" />
+    </Key>
+    <Property Name="idrecibo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="movimiento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="norefmov" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="hora" Type="time" Precision="0" Nullable="false" />
+    <Property Name="idcliente" Type="int" Nullable="false" />
+    <Property Name="concepto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="observacion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idos" Type="int" Nullable="false" />
+    <Property Name="folioremfact" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idabono" Type="int" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+    <Property Name="folio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="conrecibos1">
+    <Key>
+      <PropertyRef Name="idrecibo" />
+    </Key>
+    <Property Name="idrecibo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="movimiento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="norefmov" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="hora" Type="time" Precision="0" Nullable="false" />
+    <Property Name="idcliente" Type="int" Nullable="false" />
+    <Property Name="concepto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="observacion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idos" Type="int" Nullable="false" />
+    <Property Name="folioremfact" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idabono" Type="int" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+    <Property Name="folio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="conventas">
+    <Key>
+      <PropertyRef Name="index" />
+    </Key>
+    <Property Name="index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="cliente" Type="int" Nullable="false" />
+    <Property Name="ciudad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tipo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Abono" Type="double" Nullable="false" />
+    <Property Name="Saldo" Type="double" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="nopzas" Type="int" Nullable="false" />
+    <Property Name="nopaq" Type="int" Nullable="false" />
+    <Property Name="eliminar" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="corridas_produccion">
+    <Key>
+      <PropertyRef Name="codigob" />
+    </Key>
+    <Property Name="codigob" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AA" Type="int" Nullable="false" />
+    <Property Name="AB" Type="int" Nullable="false" />
+    <Property Name="AT" Type="int" Nullable="false" />
+    <Property Name="BA" Type="int" Nullable="false" />
+    <Property Name="BB" Type="int" Nullable="false" />
+    <Property Name="BT" Type="int" Nullable="false" />
+    <Property Name="CA" Type="int" Nullable="false" />
+    <Property Name="CB" Type="int" Nullable="false" />
+    <Property Name="CT" Type="int" Nullable="false" />
+    <Property Name="DA" Type="int" Nullable="false" />
+    <Property Name="DB" Type="int" Nullable="false" />
+    <Property Name="DT" Type="int" Nullable="false" />
+    <Property Name="EA" Type="int" Nullable="false" />
+    <Property Name="EB" Type="int" Nullable="false" />
+    <Property Name="ET" Type="int" Nullable="false" />
+    <Property Name="FA" Type="int" Nullable="false" />
+    <Property Name="FB" Type="int" Nullable="false" />
+    <Property Name="FT" Type="int" Nullable="false" />
+    <Property Name="GA" Type="int" Nullable="false" />
+    <Property Name="GB" Type="int" Nullable="false" />
+    <Property Name="GT" Type="int" Nullable="false" />
+    <Property Name="HA" Type="int" Nullable="false" />
+    <Property Name="HB" Type="int" Nullable="false" />
+    <Property Name="HT" Type="int" Nullable="false" />
+    <Property Name="IA" Type="int" Nullable="false" />
+    <Property Name="IB" Type="int" Nullable="false" />
+    <Property Name="IT" Type="int" Nullable="false" />
+    <Property Name="TA" Type="int" Nullable="false" />
+    <Property Name="TB" Type="int" Nullable="false" />
+    <Property Name="TT" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cuentasdep">
+    <Key>
+      <PropertyRef Name="idcuenta" />
+    </Key>
+    <Property Name="idcuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="banco" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="titular" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="nocuenta" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="dellatedepositos">
+    <Key>
+      <PropertyRef Name="Index" />
+    </Key>
+    <Property Name="Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Indexfolio" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FolioOS" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Banco" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Beneficiario" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="NoCta" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Importe" Type="double" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="eliminar" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="dellatedepositos1">
+    <Key>
+      <PropertyRef Name="Index" />
+    </Key>
+    <Property Name="Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Indexfolio" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FolioOS" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Banco" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Beneficiario" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="NoCta" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Importe" Type="double" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="eliminar" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="departamentosmp">
+    <Key>
+      <PropertyRef Name="iddepartamento" />
+    </Key>
+    <Property Name="iddepartamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="departamento" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="detallecheque">
+    <Key>
+      <PropertyRef Name="Index" />
+    </Key>
+    <Property Name="Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Indexfolio" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="FechaC" Type="date" Nullable="false" />
+    <Property Name="FechaRC" Type="date" Nullable="false" />
+    <Property Name="Banco" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Titular" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="NoCheque" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Importe" Type="double" Nullable="false" />
+    <Property Name="Documentado" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Eliminar" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="detallecheque1">
+    <Key>
+      <PropertyRef Name="Index" />
+    </Key>
+    <Property Name="Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Indexfolio" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="FechaC" Type="date" Nullable="false" />
+    <Property Name="FechaRC" Type="date" Nullable="false" />
+    <Property Name="Banco" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Titular" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="NoCheque" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Importe" Type="double" Nullable="false" />
+    <Property Name="Documentado" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Eliminar" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="detalledescuento">
+    <Key>
+      <PropertyRef Name="iddescuento" />
+    </Key>
+    <Property Name="iddescuento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="indexfolio" Type="int" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="concepto" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="autorizo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="eliminar" Type="bit" Nullable="false" />
+    <Property Name="idabono" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="detalledescuento1">
+    <Key>
+      <PropertyRef Name="iddescuento" />
+    </Key>
+    <Property Name="iddescuento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="indexfolio" Type="int" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="concepto" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="autorizo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="eliminar" Type="bit" Nullable="false" />
+    <Property Name="idabono" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="dphabilitacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.ejemploagente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="ejemploagente">
+    <Key>
+      <PropertyRef Name="idagente" />
+    </Key>
+    <Property Name="idagente" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="ejemplorutas">
+    <Key>
+      <PropertyRef Name="idruta" />
+    </Key>
+    <Property Name="idruta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idagente" Type="int" />
+    <Property Name="estado" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="email_settings">
+    <Key>
+      <PropertyRef Name="idemail" />
+    </Key>
+    <Property Name="idemail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="account" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="server" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="port" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="emails">
+    <Key>
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="empresas">
+    <Key>
+      <PropertyRef Name="idempresa" />
+    </Key>
+    <Property Name="idempresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_empresa" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="nombre_fiscal" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="rfc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="pais" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="calle" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="no_exterior" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="no_interior" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="colonia" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="localidad" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="referencia" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="cp" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="municipio" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="regimen_fiscal" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="archivo_cer" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="archivo_key" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="password_llave" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="caducidad_certificado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="no_serie" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="cbb" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="fecha_creacion" Type="date" Nullable="false" />
+    <Property Name="servidor" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="puerto" Type="int" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="password_email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="registroPatronal" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="curp" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="claveEntidad" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.entrada_almacen' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="entrada_almacen">
+    <Key>
+      <PropertyRef Name="idea" />
+      <PropertyRef Name="codigob" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="descripcion" />
+      <PropertyRef Name="medida" />
+      <PropertyRef Name="unidadm" />
+      <PropertyRef Name="color" />
+      <PropertyRef Name="coston" />
+      <PropertyRef Name="importe" />
+      <PropertyRef Name="fecha" />
+      <PropertyRef Name="devolucion" />
+    </Key>
+    <Property Name="idea" Type="int" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="medida" Type="double" Nullable="false" />
+    <Property Name="unidadm" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="color" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="coston" Type="double" Nullable="false" />
+    <Property Name="importe" Type="double" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.entradas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="entradas">
+    <Key>
+      <PropertyRef Name="folio" />
+      <PropertyRef Name="codigob" />
+      <PropertyRef Name="modelo" />
+      <PropertyRef Name="nopaq" />
+      <PropertyRef Name="fecha" />
+      <PropertyRef Name="hora" />
+      <PropertyRef Name="nopiezas" />
+      <PropertyRef Name="descripcion" />
+      <PropertyRef Name="almacen" />
+      <PropertyRef Name="saldo" />
+      <PropertyRef Name="loteproduccion" />
+      <PropertyRef Name="observacion" />
+      <PropertyRef Name="devolucion" />
+      <PropertyRef Name="corte" />
+    </Key>
+    <Property Name="folio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nopaq" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="hora" Type="time" Precision="0" Nullable="false" />
+    <Property Name="nopiezas" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="almacen" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="saldo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="loteproduccion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="observacion" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+    <Property Name="corte" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.factura_electronica' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="factura_electronica">
+    <Key>
+      <PropertyRef Name="idfe" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="pzas_paq" />
+      <PropertyRef Name="pzas_total" />
+      <PropertyRef Name="codigob" />
+      <PropertyRef Name="descripcion" />
+      <PropertyRef Name="unidad" />
+      <PropertyRef Name="preciociva" />
+      <PropertyRef Name="totalciva" />
+      <PropertyRef Name="preciosiva" />
+      <PropertyRef Name="totalsiva" />
+      <PropertyRef Name="eliminar" />
+    </Key>
+    <Property Name="idfe" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="pzas_paq" Type="int" Nullable="false" />
+    <Property Name="pzas_total" Type="int" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="unidad" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="preciociva" Type="double" Nullable="false" />
+    <Property Name="totalciva" Type="double" Nullable="false" />
+    <Property Name="preciosiva" Type="double" Nullable="false" />
+    <Property Name="totalsiva" Type="double" Nullable="false" />
+    <Property Name="eliminar" Type="bool" Nullable="false" />
+  </EntityType>
+  <EntityType Name="familiamp">
+    <Key>
+      <PropertyRef Name="idfamilia" />
+    </Key>
+    <Property Name="idfamilia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="depto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="subfamilia" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.fe' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="fe">
+    <Key>
+      <PropertyRef Name="fv" />
+      <PropertyRef Name="fd" />
+      <PropertyRef Name="fu" />
+      <PropertyRef Name="se" />
+    </Key>
+    <Property Name="fv" Type="date" Nullable="false" />
+    <Property Name="fd" Type="int" Nullable="false" />
+    <Property Name="fu" Type="int" Nullable="false" />
+    <Property Name="se" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.folio' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="folio">
+    <Key>
+      <PropertyRef Name="nombre" />
+      <PropertyRef Name="folio" />
+      <PropertyRef Name="entro" />
+    </Key>
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="folio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="entro" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.foliosfe' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="foliosfe">
+    <Key>
+      <PropertyRef Name="nombre" />
+      <PropertyRef Name="folio" />
+    </Key>
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="folio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="fotos">
+    <Key>
+      <PropertyRef Name="IdFoto" />
+    </Key>
+    <Property Name="IdFoto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fileName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fileSize" Type="int" Nullable="false" />
+    <Property Name="foto" Type="longblob" Nullable="false" />
+  </EntityType>
+  <EntityType Name="kardexam">
+    <Key>
+      <PropertyRef Name="idkardexam" />
+    </Key>
+    <Property Name="idkardexam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="movimiento" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="folio" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="cantidad" Type="double" Nullable="false" />
+    <Property Name="existenciaini" Type="double" Nullable="false" />
+    <Property Name="existenciafin" Type="double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="kardexmp">
+    <Key>
+      <PropertyRef Name="idkardexmp" />
+    </Key>
+    <Property Name="idkardexmp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="movimiento" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="folio" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="cantidad" Type="double" Nullable="false" />
+    <Property Name="existenciaini" Type="double" Nullable="false" />
+    <Property Name="existenciafin" Type="double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="kardexos">
+    <Key>
+      <PropertyRef Name="idkardexos" />
+    </Key>
+    <Property Name="idkardexos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="movimiento" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="folio" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="cantidad" Type="double" Nullable="false" />
+    <Property Name="existenciainit" Type="double" Nullable="false" />
+    <Property Name="existenciafint" Type="double" Nullable="false" />
+    <Property Name="existenciainis" Type="double" Nullable="false" />
+    <Property Name="existenciafins" Type="double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="kardexpvf">
+    <Key>
+      <PropertyRef Name="id_kardex" />
+    </Key>
+    <Property Name="id_kardex" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="movimiento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="folio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="id_agente_venta" Type="int" Nullable="false" />
+    <Property Name="existenciaini" Type="int" Nullable="false" />
+    <Property Name="existenciafin" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="lavanderia">
+    <Key>
+      <PropertyRef Name="index" />
+    </Key>
+    <Property Name="index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lavanderia" Type="varchar" MaxLength="225" Nullable="false" />
+  </EntityType>
+  <EntityType Name="lotes">
+    <Key>
+      <PropertyRef Name="idlote" />
+    </Key>
+    <Property Name="idlote" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idconlote" Type="int" Nullable="false" />
+    <Property Name="rollo" Type="int" Nullable="false" />
+    <Property Name="cantmts" Type="double" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="maquilero">
+    <Key>
+      <PropertyRef Name="idmaquilero" />
+    </Key>
+    <Property Name="idmaquilero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="maquilero" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="mp">
+    <Key>
+      <PropertyRef Name="idmp" />
+    </Key>
+    <Property Name="idmp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="depto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="comcalmed" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="codcolmod" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="color" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="acabado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="presentacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="anchocant" Type="double" Nullable="false" />
+    <Property Name="um" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="preciosiva" Type="double" Nullable="false" />
+    <Property Name="preciociva" Type="double" Nullable="false" />
+    <Property Name="observacion" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ubicacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="localizacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="existcue" Type="double" Nullable="false" />
+    <Property Name="existpue" Type="double" Nullable="false" />
+    <Property Name="coston" Type="double" Nullable="false" />
+    <Property Name="costop" Type="double" Nullable="false" />
+    <Property Name="costoh" Type="double" Nullable="false" />
+    <Property Name="min" Type="double" Nullable="false" />
+    <Property Name="max" Type="double" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="codigob2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idfoto" Type="int" Nullable="false" />
+    <Property Name="idproveedor" Type="int" Nullable="false" />
+    <Property Name="idfamilia" Type="int" Nullable="false" />
+    <Property Name="transitocue" Type="double" Nullable="false" />
+    <Property Name="transitopue" Type="double" Nullable="false" />
+    <Property Name="servicioactivo" Type="bit" Nullable="false" />
+    <Property Name="lotes" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="nodos_ruta">
+    <Key>
+      <PropertyRef Name="id_nodos" />
+    </Key>
+    <Property Name="id_nodos" Type="ubigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_agente" Type="int" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ciudad" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.notacredito' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="notacredito">
+    <Key>
+      <PropertyRef Name="Index" />
+      <PropertyRef Name="Fecha" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="Modelo" />
+      <PropertyRef Name="precio" />
+      <PropertyRef Name="CodigoBarra" />
+      <PropertyRef Name="nopzas" />
+      <PropertyRef Name="Descripcion" />
+      <PropertyRef Name="Total" />
+      <PropertyRef Name="Tipo" />
+      <PropertyRef Name="devolucion" />
+    </Key>
+    <Property Name="Index" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="Modelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="precio" Type="double" Nullable="false" />
+    <Property Name="CodigoBarra" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nopzas" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Total" Type="double" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.orden_compra' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="orden_compra">
+    <Key>
+      <PropertyRef Name="idoc" />
+      <PropertyRef Name="codigob" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="descripcion" />
+      <PropertyRef Name="medida" />
+      <PropertyRef Name="unidadm" />
+      <PropertyRef Name="color" />
+      <PropertyRef Name="coston" />
+      <PropertyRef Name="importe" />
+      <PropertyRef Name="fecha" />
+      <PropertyRef Name="nopzas" />
+      <PropertyRef Name="surtido" />
+      <PropertyRef Name="devolucion" />
+    </Key>
+    <Property Name="idoc" Type="int" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="medida" Type="double" Nullable="false" />
+    <Property Name="unidadm" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="color" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="coston" Type="double" Nullable="false" />
+    <Property Name="importe" Type="double" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="nopzas" Type="int" Nullable="false" />
+    <Property Name="surtido" Type="int" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.orden_salida' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="orden_salida">
+    <Key>
+      <PropertyRef Name="indexfolio" />
+      <PropertyRef Name="folio" />
+      <PropertyRef Name="foliodocto" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="modelo" />
+      <PropertyRef Name="descripcion" />
+      <PropertyRef Name="precio" />
+      <PropertyRef Name="total" />
+      <PropertyRef Name="codigob" />
+      <PropertyRef Name="nopzas" />
+      <PropertyRef Name="estado" />
+      <PropertyRef Name="fecha" />
+      <PropertyRef Name="eliminar" />
+    </Key>
+    <Property Name="indexfolio" Type="int" Nullable="false" />
+    <Property Name="folio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="foliodocto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="precio" Type="double" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="nopzas" Type="int" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="eliminar" Type="bool" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.osmpa' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="osmpa">
+    <Key>
+      <PropertyRef Name="idosmpa" />
+      <PropertyRef Name="idproveedor" />
+      <PropertyRef Name="indexmp" />
+      <PropertyRef Name="descripcion" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="costo" />
+      <PropertyRef Name="total" />
+      <PropertyRef Name="observacion" />
+      <PropertyRef Name="devolucion" />
+    </Key>
+    <Property Name="idosmpa" Type="int" Nullable="false" />
+    <Property Name="idproveedor" Type="int" Nullable="false" />
+    <Property Name="indexmp" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="cantidad" Type="double" Nullable="false" />
+    <Property Name="costo" Type="double" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="observacion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.osmph' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="osmph">
+    <Key>
+      <PropertyRef Name="idosmph" />
+      <PropertyRef Name="idproceso" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="indexmp" />
+      <PropertyRef Name="descripcion" />
+      <PropertyRef Name="costo" />
+      <PropertyRef Name="total" />
+      <PropertyRef Name="observacion" />
+      <PropertyRef Name="devolucion" />
+    </Key>
+    <Property Name="idosmph" Type="int" Nullable="false" />
+    <Property Name="idproceso" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="cantidad" Type="double" Nullable="false" />
+    <Property Name="indexmp" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="costo" Type="double" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="observacion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.pedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="pedidos">
+    <Key>
+      <PropertyRef Name="folio" />
+      <PropertyRef Name="fecha" />
+      <PropertyRef Name="Descripcion" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="Precio" />
+      <PropertyRef Name="Importe" />
+      <PropertyRef Name="cliente" />
+      <PropertyRef Name="nopzas" />
+      <PropertyRef Name="modelo" />
+      <PropertyRef Name="codigob" />
+      <PropertyRef Name="eliminar" />
+      <PropertyRef Name="estado" />
+      <PropertyRef Name="surtidas" />
+      <PropertyRef Name="pzasxpaq" />
+    </Key>
+    <Property Name="folio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="Precio" Type="double" Nullable="false" />
+    <Property Name="Importe" Type="double" Nullable="false" />
+    <Property Name="cliente" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nopzas" Type="int" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="eliminar" Type="bit" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="surtidas" Type="int" Nullable="false" />
+    <Property Name="pzasxpaq" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.pedidos_pvf' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="pedidos_pvf">
+    <Key>
+      <PropertyRef Name="id_folio" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="modelo" />
+      <PropertyRef Name="descripcion" />
+      <PropertyRef Name="precio" />
+      <PropertyRef Name="total" />
+      <PropertyRef Name="codigob" />
+      <PropertyRef Name="pzasxpaq" />
+      <PropertyRef Name="pzastotales" />
+      <PropertyRef Name="eliminar" />
+    </Key>
+    <Property Name="id_folio" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="precio" Type="double" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="pzasxpaq" Type="int" Nullable="false" />
+    <Property Name="pzastotales" Type="int" Nullable="false" />
+    <Property Name="eliminar" Type="bool" Nullable="false" />
+  </EntityType>
+  <EntityType Name="producto">
+    <Key>
+      <PropertyRef Name="codigob" />
+    </Key>
+    <Property Name="Modelo" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="pzasxpaq" Type="int" Nullable="false" />
+    <Property Name="l1" Type="double" Nullable="false" />
+    <Property Name="l2" Type="double" Nullable="false" />
+    <Property Name="l3" Type="double" Nullable="false" />
+    <Property Name="t03" Type="bool" Nullable="false" />
+    <Property Name="t05" Type="bool" Nullable="false" />
+    <Property Name="t07" Type="bool" Nullable="false" />
+    <Property Name="t09" Type="bool" Nullable="false" />
+    <Property Name="t11" Type="bool" Nullable="false" />
+    <Property Name="t13" Type="bool" Nullable="false" />
+    <Property Name="tch" Type="bool" Nullable="false" />
+    <Property Name="tm" Type="bool" Nullable="false" />
+    <Property Name="tg" Type="bool" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="t03cant" Type="int" Nullable="false" />
+    <Property Name="t05cant" Type="int" Nullable="false" />
+    <Property Name="t07cant" Type="int" Nullable="false" />
+    <Property Name="t09cant" Type="int" Nullable="false" />
+    <Property Name="t11cant" Type="int" Nullable="false" />
+    <Property Name="t13cant" Type="int" Nullable="false" />
+    <Property Name="tchcant" Type="int" Nullable="false" />
+    <Property Name="tmcant" Type="int" Nullable="false" />
+    <Property Name="tgcant" Type="int" Nullable="false" />
+    <Property Name="existencia" Type="double" Nullable="false" />
+    <Property Name="compras" Type="double" Nullable="false" />
+    <Property Name="ventas" Type="double" Nullable="false" />
+    <Property Name="transito" Type="double" Nullable="false" />
+    <Property Name="traspasos" Type="double" Nullable="false" />
+    <Property Name="final" Type="double" Nullable="false" />
+    <Property Name="existencia_saldos" Type="double" Nullable="false" />
+    <Property Name="foto1" Type="int" Nullable="false" />
+    <Property Name="foto2" Type="int" Nullable="false" />
+    <Property Name="foto3" Type="int" Nullable="false" />
+    <Property Name="Pzasprod" Type="int" Nullable="false" />
+    <Property Name="costo_historico" Type="double" Nullable="false" />
+    <Property Name="costo_promedio" Type="double" Nullable="false" />
+    <Property Name="costo_actual" Type="double" Nullable="false" />
+    <Property Name="maquilero" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="descuento" Type="double" Nullable="false" />
+    <Property Name="apartado" Type="int" Nullable="false" />
+    <Property Name="corrida" Type="bool" Nullable="false" />
+    <Property Name="liberado" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="proveedoresmp">
+    <Key>
+      <PropertyRef Name="idproveedor" />
+    </Key>
+    <Property Name="idproveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="nombreabreviado" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="contacto" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="oficina" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="radio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fax" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="diasdecredito" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="colonia" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="poblacion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="cp" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="rfc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="giro" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="movil" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="web" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="tipo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="oficinav" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="extov" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="extfv" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="extoc" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="contactov" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="emailv" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.recibosch' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="recibosch">
+    <Key>
+      <PropertyRef Name="idrecibo" />
+      <PropertyRef Name="banco" />
+      <PropertyRef Name="titular" />
+      <PropertyRef Name="noch" />
+      <PropertyRef Name="importe" />
+      <PropertyRef Name="vence" />
+      <PropertyRef Name="idcliente" />
+      <PropertyRef Name="devolucion" />
+    </Key>
+    <Property Name="idrecibo" Type="int" Nullable="false" />
+    <Property Name="banco" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="titular" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="noch" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="importe" Type="double" Nullable="false" />
+    <Property Name="vence" Type="date" Nullable="false" />
+    <Property Name="idcliente" Type="int" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.recibosdep' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="recibosdep">
+    <Key>
+      <PropertyRef Name="idrecibo" />
+      <PropertyRef Name="banco" />
+      <PropertyRef Name="nocta" />
+      <PropertyRef Name="titular" />
+      <PropertyRef Name="importe" />
+      <PropertyRef Name="fecha" />
+      <PropertyRef Name="devolucion" />
+    </Key>
+    <Property Name="idrecibo" Type="int" Nullable="false" />
+    <Property Name="banco" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="nocta" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="titular" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="importe" Type="double" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.recibosed' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="recibosed">
+    <Key>
+      <PropertyRef Name="idrecibo" />
+      <PropertyRef Name="movimiento" />
+      <PropertyRef Name="total" />
+      <PropertyRef Name="devolucion" />
+    </Key>
+    <Property Name="idrecibo" Type="int" Nullable="false" />
+    <Property Name="movimiento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="devolucion" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.regimen_fiscal' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="regimen_fiscal">
+    <Key>
+      <PropertyRef Name="clave" />
+      <PropertyRef Name="regimen" />
+    </Key>
+    <Property Name="clave" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="regimen" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="subfamiliamp">
+    <Key>
+      <PropertyRef Name="idsubfamilia" />
+    </Key>
+    <Property Name="idsubfamilia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="familia" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sucursal">
+    <Key>
+      <PropertyRef Name="indexs" />
+    </Key>
+    <Property Name="indexs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="indexc" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="225" Nullable="false" />
+    <Property Name="domicilio" Type="varchar" MaxLength="225" Nullable="false" />
+    <Property Name="poblacion" Type="varchar" MaxLength="225" Nullable="false" />
+    <Property Name="cp" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="contacto" Type="varchar" MaxLength="225" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="225" Nullable="false" />
+    <Property Name="tel" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fax" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="index" />
+    </Key>
+    <Property Name="index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vista" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contrasena" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_agente_venta" Type="int" Nullable="false" />
+    <Property Name="domicilio" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="poblacion" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="codigo_postal" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.ventas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="ventas">
+    <Key>
+      <PropertyRef Name="folio" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="modelo" />
+      <PropertyRef Name="descripcion" />
+      <PropertyRef Name="precio" />
+      <PropertyRef Name="total" />
+      <PropertyRef Name="codigob" />
+      <PropertyRef Name="nopzas" />
+      <PropertyRef Name="estado" />
+      <PropertyRef Name="fecha" />
+      <PropertyRef Name="eliminar" />
+    </Key>
+    <Property Name="folio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="precio" Type="double" Nullable="false" />
+    <Property Name="total" Type="double" Nullable="false" />
+    <Property Name="codigob" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="nopzas" Type="int" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="eliminar" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="configuracionModelStoreContainer">
+    <EntitySet Name="abonoagentes" EntityType="Self.abonoagentes" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="acabadomp" EntityType="Self.acabadomp" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="agentesventa" EntityType="Self.agentesventa" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="almacen_modelo" EntityType="Self.almacen_modelo" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="anclaagentes" EntityType="Self.anclaagentes" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="asignacion_av_pvf" EntityType="Self.asignacion_av_pvf" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="catalogomp" EntityType="Self.catalogomp" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="catformapago" EntityType="Self.catformapago" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="catmetodopago" EntityType="Self.catmetodopago" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="catusocfdi" EntityType="Self.catusocfdi" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="cliente" EntityType="Self.cliente" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="clientes" EntityType="Self.clientes" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="con_almacenes" EntityType="Self.con_almacenes" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="con_osmpa" EntityType="Self.con_osmpa" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="con_osmph" EntityType="Self.con_osmph" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="con_pedidospvf" EntityType="Self.con_pedidospvf" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="conabonos_clientes" EntityType="Self.conabonos_clientes" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="conabonos_clientes1" EntityType="Self.conabonos_clientes1" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="conentrada_almacen" EntityType="Self.conentrada_almacen" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="conentradas" EntityType="Self.conentradas" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="confactura_electronica" EntityType="Self.confactura_electronica" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="conlotes" EntityType="Self.conlotes" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="connotacredito" EntityType="Self.connotacredito" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="conorden_compra" EntityType="Self.conorden_compra" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="conorden_salida" EntityType="Self.conorden_salida" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="conos_conpvf" EntityType="Self.conos_conpvf" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="conpedidos" EntityType="Self.conpedidos" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="conrecibos" EntityType="Self.conrecibos" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="conrecibos1" EntityType="Self.conrecibos1" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="conventas" EntityType="Self.conventas" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="corridas_produccion" EntityType="Self.corridas_produccion" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="cuentasdep" EntityType="Self.cuentasdep" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="dellatedepositos" EntityType="Self.dellatedepositos" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="dellatedepositos1" EntityType="Self.dellatedepositos1" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="departamentosmp" EntityType="Self.departamentosmp" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="detallecheque" EntityType="Self.detallecheque" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="detallecheque1" EntityType="Self.detallecheque1" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="detalledescuento" EntityType="Self.detalledescuento" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="detalledescuento1" EntityType="Self.detalledescuento1" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="dphabilitacion" EntityType="Self.dphabilitacion" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="ejemplorutas" EntityType="Self.ejemplorutas" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="email_settings" EntityType="Self.email_settings" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="emails" EntityType="Self.emails" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="empresas" EntityType="Self.empresas" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="familiamp" EntityType="Self.familiamp" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="fotos" EntityType="Self.fotos" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="kardexam" EntityType="Self.kardexam" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="kardexmp" EntityType="Self.kardexmp" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="kardexos" EntityType="Self.kardexos" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="kardexpvf" EntityType="Self.kardexpvf" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="lavanderia" EntityType="Self.lavanderia" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="lotes" EntityType="Self.lotes" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="maquilero" EntityType="Self.maquilero" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="mp" EntityType="Self.mp" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="nodos_ruta" EntityType="Self.nodos_ruta" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="producto" EntityType="Self.producto" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="proveedoresmp" EntityType="Self.proveedoresmp" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="subfamiliamp" EntityType="Self.subfamiliamp" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="sucursal" EntityType="Self.sucursal" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="configuracion" store:Type="Tables" />
+    <EntitySet Name="almacen_av_pvf" EntityType="Self.almacen_av_pvf" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`almacen_av_pvf`.`id_agente_venta`, 
+`almacen_av_pvf`.`modelo`, 
+`almacen_av_pvf`.`codigob`, 
+`almacen_av_pvf`.`inicial`, 
+`almacen_av_pvf`.`exist`, 
+`almacen_av_pvf`.`fecha`, 
+`almacen_av_pvf`.`traspaso`, 
+`almacen_av_pvf`.`traspasado`, 
+`almacen_av_pvf`.`pzasxpaq`
+FROM `almacen_av_pvf` AS `almacen_av_pvf`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="almacenes" EntityType="Self.almacenes" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`almacenes`.`idalmacenes`, 
+`almacenes`.`modelo`, 
+`almacenes`.`nopiezas`, 
+`almacenes`.`faltante`, 
+`almacenes`.`corte`, 
+`almacenes`.`observacion`, 
+`almacenes`.`entrada`, 
+`almacenes`.`salida`, 
+`almacenes`.`devolucion`, 
+`almacenes`.`lavanderia`
+FROM `almacenes` AS `almacenes`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="catclaveprodserv" EntityType="Self.catclaveprodserv" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`catclaveprodserv`.`idClaveProdServ`, 
+`catclaveprodserv`.`clave`, 
+`catclaveprodserv`.`descripcion`
+FROM `catclaveprodserv` AS `catclaveprodserv`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="catclaveunidad" EntityType="Self.catclaveunidad" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`catclaveunidad`.`idClaveUnidad`, 
+`catclaveunidad`.`clave`, 
+`catclaveunidad`.`descripcion`
+FROM `catclaveunidad` AS `catclaveunidad`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="claves_estados" EntityType="Self.claves_estados" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`claves_estados`.`c_Estado`, 
+`claves_estados`.`c_Pais`, 
+`claves_estados`.`nombre`
+FROM `claves_estados` AS `claves_estados`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="clavesat_productos" EntityType="Self.clavesat_productos" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`clavesat_productos`.`idclavesat_productos`, 
+`clavesat_productos`.`claveProdServ`, 
+`clavesat_productos`.`claveUnidad`, 
+`clavesat_productos`.`codigob`
+FROM `clavesat_productos` AS `clavesat_productos`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ejemploagente" EntityType="Self.ejemploagente" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`ejemploagente`.`idagente`, 
+`ejemploagente`.`nombre`
+FROM `ejemploagente` AS `ejemploagente`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="entrada_almacen" EntityType="Self.entrada_almacen" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`entrada_almacen`.`idea`, 
+`entrada_almacen`.`codigob`, 
+`entrada_almacen`.`cantidad`, 
+`entrada_almacen`.`descripcion`, 
+`entrada_almacen`.`medida`, 
+`entrada_almacen`.`unidadm`, 
+`entrada_almacen`.`color`, 
+`entrada_almacen`.`coston`, 
+`entrada_almacen`.`importe`, 
+`entrada_almacen`.`fecha`, 
+`entrada_almacen`.`devolucion`
+FROM `entrada_almacen` AS `entrada_almacen`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="entradas" EntityType="Self.entradas" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`entradas`.`folio`, 
+`entradas`.`codigob`, 
+`entradas`.`modelo`, 
+`entradas`.`nopaq`, 
+`entradas`.`fecha`, 
+`entradas`.`hora`, 
+`entradas`.`nopiezas`, 
+`entradas`.`descripcion`, 
+`entradas`.`almacen`, 
+`entradas`.`saldo`, 
+`entradas`.`loteproduccion`, 
+`entradas`.`observacion`, 
+`entradas`.`devolucion`, 
+`entradas`.`corte`
+FROM `entradas` AS `entradas`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="factura_electronica" EntityType="Self.factura_electronica" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`factura_electronica`.`idfe`, 
+`factura_electronica`.`cantidad`, 
+`factura_electronica`.`pzas_paq`, 
+`factura_electronica`.`pzas_total`, 
+`factura_electronica`.`codigob`, 
+`factura_electronica`.`descripcion`, 
+`factura_electronica`.`unidad`, 
+`factura_electronica`.`preciociva`, 
+`factura_electronica`.`totalciva`, 
+`factura_electronica`.`preciosiva`, 
+`factura_electronica`.`totalsiva`, 
+`factura_electronica`.`eliminar`
+FROM `factura_electronica` AS `factura_electronica`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="fe" EntityType="Self.fe" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`fe`.`fv`, 
+`fe`.`fd`, 
+`fe`.`fu`, 
+`fe`.`se`
+FROM `fe` AS `fe`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="folio" EntityType="Self.folio" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`folio`.`nombre`, 
+`folio`.`folio`, 
+`folio`.`entro`
+FROM `folio` AS `folio`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="foliosfe" EntityType="Self.foliosfe" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`foliosfe`.`nombre`, 
+`foliosfe`.`folio`
+FROM `foliosfe` AS `foliosfe`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="notacredito" EntityType="Self.notacredito" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`notacredito`.`Index`, 
+`notacredito`.`Fecha`, 
+`notacredito`.`cantidad`, 
+`notacredito`.`Modelo`, 
+`notacredito`.`precio`, 
+`notacredito`.`CodigoBarra`, 
+`notacredito`.`nopzas`, 
+`notacredito`.`Descripcion`, 
+`notacredito`.`Total`, 
+`notacredito`.`Tipo`, 
+`notacredito`.`devolucion`
+FROM `notacredito` AS `notacredito`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="orden_compra" EntityType="Self.orden_compra" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`orden_compra`.`idoc`, 
+`orden_compra`.`codigob`, 
+`orden_compra`.`cantidad`, 
+`orden_compra`.`descripcion`, 
+`orden_compra`.`medida`, 
+`orden_compra`.`unidadm`, 
+`orden_compra`.`color`, 
+`orden_compra`.`coston`, 
+`orden_compra`.`importe`, 
+`orden_compra`.`fecha`, 
+`orden_compra`.`nopzas`, 
+`orden_compra`.`surtido`, 
+`orden_compra`.`devolucion`
+FROM `orden_compra` AS `orden_compra`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="orden_salida" EntityType="Self.orden_salida" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`orden_salida`.`indexfolio`, 
+`orden_salida`.`folio`, 
+`orden_salida`.`foliodocto`, 
+`orden_salida`.`cantidad`, 
+`orden_salida`.`modelo`, 
+`orden_salida`.`descripcion`, 
+`orden_salida`.`precio`, 
+`orden_salida`.`total`, 
+`orden_salida`.`codigob`, 
+`orden_salida`.`nopzas`, 
+`orden_salida`.`estado`, 
+`orden_salida`.`fecha`, 
+`orden_salida`.`eliminar`
+FROM `orden_salida` AS `orden_salida`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="osmpa" EntityType="Self.osmpa" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`osmpa`.`idosmpa`, 
+`osmpa`.`idproveedor`, 
+`osmpa`.`indexmp`, 
+`osmpa`.`descripcion`, 
+`osmpa`.`cantidad`, 
+`osmpa`.`costo`, 
+`osmpa`.`total`, 
+`osmpa`.`observacion`, 
+`osmpa`.`devolucion`
+FROM `osmpa` AS `osmpa`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="osmph" EntityType="Self.osmph" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`osmph`.`idosmph`, 
+`osmph`.`idproceso`, 
+`osmph`.`cantidad`, 
+`osmph`.`indexmp`, 
+`osmph`.`descripcion`, 
+`osmph`.`costo`, 
+`osmph`.`total`, 
+`osmph`.`observacion`, 
+`osmph`.`devolucion`
+FROM `osmph` AS `osmph`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="pedidos" EntityType="Self.pedidos" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`pedidos`.`folio`, 
+`pedidos`.`fecha`, 
+`pedidos`.`Descripcion`, 
+`pedidos`.`cantidad`, 
+`pedidos`.`Precio`, 
+`pedidos`.`Importe`, 
+`pedidos`.`cliente`, 
+`pedidos`.`nopzas`, 
+`pedidos`.`modelo`, 
+`pedidos`.`codigob`, 
+`pedidos`.`eliminar`, 
+`pedidos`.`estado`, 
+`pedidos`.`surtidas`, 
+`pedidos`.`pzasxpaq`
+FROM `pedidos` AS `pedidos`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="pedidos_pvf" EntityType="Self.pedidos_pvf" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`pedidos_pvf`.`id_folio`, 
+`pedidos_pvf`.`cantidad`, 
+`pedidos_pvf`.`modelo`, 
+`pedidos_pvf`.`descripcion`, 
+`pedidos_pvf`.`precio`, 
+`pedidos_pvf`.`total`, 
+`pedidos_pvf`.`codigob`, 
+`pedidos_pvf`.`pzasxpaq`, 
+`pedidos_pvf`.`pzastotales`, 
+`pedidos_pvf`.`eliminar`
+FROM `pedidos_pvf` AS `pedidos_pvf`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="recibosch" EntityType="Self.recibosch" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`recibosch`.`idrecibo`, 
+`recibosch`.`banco`, 
+`recibosch`.`titular`, 
+`recibosch`.`noch`, 
+`recibosch`.`importe`, 
+`recibosch`.`vence`, 
+`recibosch`.`idcliente`, 
+`recibosch`.`devolucion`
+FROM `recibosch` AS `recibosch`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="recibosdep" EntityType="Self.recibosdep" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`recibosdep`.`idrecibo`, 
+`recibosdep`.`banco`, 
+`recibosdep`.`nocta`, 
+`recibosdep`.`titular`, 
+`recibosdep`.`importe`, 
+`recibosdep`.`fecha`, 
+`recibosdep`.`devolucion`
+FROM `recibosdep` AS `recibosdep`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="recibosed" EntityType="Self.recibosed" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`recibosed`.`idrecibo`, 
+`recibosed`.`movimiento`, 
+`recibosed`.`total`, 
+`recibosed`.`devolucion`
+FROM `recibosed` AS `recibosed`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="regimen_fiscal" EntityType="Self.regimen_fiscal" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`regimen_fiscal`.`clave`, 
+`regimen_fiscal`.`regimen`
+FROM `regimen_fiscal` AS `regimen_fiscal`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ventas" EntityType="Self.ventas" store:Type="Tables" store:Schema="configuracion">
+      <DefiningQuery>SELECT
+`ventas`.`folio`, 
+`ventas`.`cantidad`, 
+`ventas`.`modelo`, 
+`ventas`.`descripcion`, 
+`ventas`.`precio`, 
+`ventas`.`total`, 
+`ventas`.`codigob`, 
+`ventas`.`nopzas`, 
+`ventas`.`estado`, 
+`ventas`.`fecha`, 
+`ventas`.`eliminar`
+FROM `ventas` AS `ventas`</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
