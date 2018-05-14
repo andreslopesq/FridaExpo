@@ -110,5 +110,6 @@ namespace Frida.WebApplication.Models
         public virtual DbSet<recibosed> reciboseds { get; set; }
         public virtual DbSet<regimen_fiscal> regimen_fiscal { get; set; }
         public virtual DbSet<venta> ventas { get; set; }
+        public virtual DbSet<visitante> visitantes { get; set; }
     }
 }

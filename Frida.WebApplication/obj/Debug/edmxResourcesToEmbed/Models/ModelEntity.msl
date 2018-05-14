@@ -1459,5 +1459,27 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="visitantes">
+      <EntityTypeMapping TypeName="configuracionModel.visitante">
+        <MappingFragment StoreEntitySet="visitante">
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="folioVisita" ColumnName="folioVisita" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="celDos" ColumnName="celDos" />
+          <ScalarProperty Name="cel" ColumnName="cel" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="localidad" ColumnName="localidad" />
+          <ScalarProperty Name="cp" ColumnName="cp" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="noExt" ColumnName="noExt" />
+          <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+          <ScalarProperty Name="nombreNegocio" ColumnName="nombreNegocio" />
+          <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+          <ScalarProperty Name="idVisitante" ColumnName="idVisitante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

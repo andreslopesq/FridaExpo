@@ -11,11 +11,9 @@ namespace Frida.WebApplication.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class cliente
     {
-        [Key]
         public int Index { get; set; }
         public string Clientef { get; set; }
         public bool Av { get; set; }

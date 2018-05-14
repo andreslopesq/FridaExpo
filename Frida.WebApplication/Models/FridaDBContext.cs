@@ -20,5 +20,7 @@ namespace Frida.WebApplication.Models
         }
 
         public System.Data.Entity.DbSet<Frida.WebApplication.Models.cliente> clientes { get; set; }
+
+        public System.Data.Entity.DbSet<Frida.WebApplication.Models.visitante> visitantes { get; set; }
     }
 }

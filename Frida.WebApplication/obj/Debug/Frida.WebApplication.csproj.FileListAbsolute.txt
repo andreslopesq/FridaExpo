@@ -119,7 +119,6 @@ C:\Users\Generico\source\repos\FridaExpo\Frida.WebApplication\bin\es\System.Web.
 C:\Users\Generico\source\repos\FridaExpo\Frida.WebApplication\bin\es\System.Net.Http.Formatting.resources.dll
 C:\Users\Generico\source\repos\FridaExpo\Frida.WebApplication\bin\es\System.Web.Http.resources.dll
 C:\Users\Generico\source\repos\FridaExpo\Frida.WebApplication\bin\es\System.Web.Http.WebHost.resources.dll
-C:\Users\Generico\source\repos\FridaExpo\Frida.WebApplication\obj\Debug\Frida.WebApplication.csprojResolveAssemblyReference.cache
 C:\Users\Generico\source\repos\FridaExpo\Frida.WebApplication\obj\Debug\Frida.WebApplication.csproj.CoreCompileInputs.cache
 C:\Users\Generico\source\repos\FridaExpo\Frida.WebApplication\obj\Debug\Frida.WebApplication.csproj.CopyComplete
 C:\Users\Generico\source\repos\FridaExpo\Frida.WebApplication\obj\Debug\Frida.WebApplication.dll

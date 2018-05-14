@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="configuracionModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="configuracionModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="abonoagentes">
           <Key>
             <PropertyRef Name="index" />
@@ -23,14 +23,6 @@
           <Property Name="idacabado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="acabado" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'def.configuracion.agentes' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="agentes">
-          <Property Name="ID" Type="int" />
-          <Property Name="nombre" Type="varchar" MaxLength="100" />
-          <Property Name="user" Type="varchar" MaxLength="125" />
-          <Property Name="password" Type="varchar" MaxLength="50" />
-        </EntityType>-->
         <EntityType Name="agentesventa">
           <Key>
             <PropertyRef Name="index" />
@@ -1602,6 +1594,27 @@ advertencia 6002: La tabla o vista 'def.configuracion.ventas' no tiene definida 
           <Property Name="fecha" Type="date" Nullable="false" />
           <Property Name="eliminar" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="visitante">
+          <Key>
+            <PropertyRef Name="idVisitante" />
+          </Key>
+          <Property Name="idVisitante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreCliente" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="nombreNegocio" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="domicilio" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="noExt" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="colonia" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cp" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="localidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tel" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="cel" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="celDos" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fechaRegistro" Type="date" Nullable="false" />
+          <Property Name="folioVisita" Type="int" Nullable="false" />
+          <Property Name="idCliente" Type="int" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="configuracionModelStoreContainer">
           <EntitySet Name="abonoagentes" EntityType="Self.abonoagentes" Schema="configuracion" store:Type="Tables" />
           <EntitySet Name="acabadomp" EntityType="Self.acabadomp" Schema="configuracion" store:Type="Tables" />
@@ -1663,6 +1676,7 @@ advertencia 6002: La tabla o vista 'def.configuracion.ventas' no tiene definida 
           <EntitySet Name="subfamiliamp" EntityType="Self.subfamiliamp" Schema="configuracion" store:Type="Tables" />
           <EntitySet Name="sucursal" EntityType="Self.sucursal" Schema="configuracion" store:Type="Tables" />
           <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="configuracion" store:Type="Tables" />
+          <EntitySet Name="visitante" EntityType="Self.visitante" Schema="configuracion" store:Type="Tables" />
           <EntitySet Name="almacen_av_pvf" EntityType="Self.almacen_av_pvf" store:Type="Tables" store:Schema="configuracion">
             <DefiningQuery>SELECT
 `almacen_av_pvf`.`id_agente_venta`, 
@@ -1955,8 +1969,7 @@ FROM `regimen_fiscal` AS `regimen_fiscal`</DefiningQuery>
 FROM `ventas` AS `ventas`</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="configuracionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -3585,7 +3598,29 @@ FROM `ventas` AS `ventas`</DefiningQuery>
           <EntitySet Name="reciboseds" EntityType="Self.recibosed" />
           <EntitySet Name="regimen_fiscal" EntityType="Self.regimen_fiscal" />
           <EntitySet Name="ventas" EntityType="Self.venta" />
+          <EntitySet Name="visitantes" EntityType="configuracionModel.visitante" />
         </EntityContainer>
+        <EntityType Name="visitante">
+          <Key>
+            <PropertyRef Name="idVisitante" />
+          </Key>
+          <Property Name="idVisitante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreCliente" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="nombreNegocio" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="domicilio" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="noExt" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="colonia" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cp" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="localidad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="cel" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="celDos" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fechaRegistro" Type="DateTime" Nullable="false" />
+          <Property Name="folioVisita" Type="Int32" Nullable="false" />
+          <Property Name="idCliente" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5047,6 +5082,28 @@ FROM `ventas` AS `ventas`</DefiningQuery>
                 <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="eliminar" ColumnName="eliminar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="visitantes">
+            <EntityTypeMapping TypeName="configuracionModel.visitante">
+              <MappingFragment StoreEntitySet="visitante">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="folioVisita" ColumnName="folioVisita" />
+                <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="celDos" ColumnName="celDos" />
+                <ScalarProperty Name="cel" ColumnName="cel" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="localidad" ColumnName="localidad" />
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="colonia" ColumnName="colonia" />
+                <ScalarProperty Name="noExt" ColumnName="noExt" />
+                <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+                <ScalarProperty Name="nombreNegocio" ColumnName="nombreNegocio" />
+                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+                <ScalarProperty Name="idVisitante" ColumnName="idVisitante" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
