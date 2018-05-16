@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frida.WebApplication", "Frida.WebApplication\Frida.WebApplication.csproj", "{2C2BD2E0-3BB3-4F88-8853-8A06BECC7CEE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridaExpo.Web", "FridaExpo.Web\FridaExpo.Web.csproj", "{D343EB0A-0032-4012-ACA6-67485A873FCE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2C2BD2E0-3BB3-4F88-8853-8A06BECC7CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2C2BD2E0-3BB3-4F88-8853-8A06BECC7CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2C2BD2E0-3BB3-4F88-8853-8A06BECC7CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2C2BD2E0-3BB3-4F88-8853-8A06BECC7CEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D343EB0A-0032-4012-ACA6-67485A873FCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D343EB0A-0032-4012-ACA6-67485A873FCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D343EB0A-0032-4012-ACA6-67485A873FCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D343EB0A-0032-4012-ACA6-67485A873FCE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

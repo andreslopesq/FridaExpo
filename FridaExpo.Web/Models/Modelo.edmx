@@ -1,0 +1,937 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="configuracionModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="Index" />
+          </Key>
+          <Property Name="Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Clientef" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Av" Type="bool" Nullable="false" />
+          <Property Name="DomicilioF" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="coloniaF" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cpF" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Plazo_Credito" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Limite_Credito" Type="double" Nullable="false" />
+          <Property Name="PoblacionF" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="RfcF" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CurpF" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="TelF" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="radiof" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactoF" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ContactoE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DomicilioE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="PoblacionE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="TelE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="PaqE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="FaxE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EmailE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="WebE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="RecibeE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ContactoT" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DomicilioT" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="PoblacionT" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="TelT" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="FaxT" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="FechaE" Type="date" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="agente" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="movilf" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_agente_venta" Type="int" Nullable="false" />
+          <Property Name="status_solicitud" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="politica_descuento" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="con_pedidospvf">
+          <Key>
+            <PropertyRef Name="id_folio" />
+          </Key>
+          <Property Name="id_folio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="id_cliente" Type="int" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ciudad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_agente_venta" Type="int" Nullable="false" />
+          <Property Name="factrem" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="total" Type="double" Nullable="false" />
+          <Property Name="cantletra" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="nopzas" Type="int" Nullable="false" />
+          <Property Name="nopaq" Type="int" Nullable="false" />
+          <Property Name="fechav1" Type="date" Nullable="false" />
+          <Property Name="totalv1" Type="double" Nullable="false" />
+          <Property Name="fechav2" Type="date" Nullable="false" />
+          <Property Name="totalv2" Type="double" Nullable="false" />
+          <Property Name="fechav3" Type="date" Nullable="false" />
+          <Property Name="totalv3" Type="double" Nullable="false" />
+          <Property Name="direnvio" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="observacion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="eliminar" Type="bool" Nullable="false" />
+          <Property Name="fecha_entrega" Type="date" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="conorden_salida">
+          <Key>
+            <PropertyRef Name="indexfolio" />
+          </Key>
+          <Property Name="indexfolio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="foliofact" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="folio" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="foliodocto" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="cliente" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="cs" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ciudad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="vendedor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="paqueteria" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="noguia" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="noguia1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fact_rem" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="total" Type="double" Nullable="false" />
+          <Property Name="letra" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="nopzas" Type="int" Nullable="false" />
+          <Property Name="nopaq" Type="int" Nullable="false" />
+          <Property Name="eliminar" Type="bool" Nullable="false" />
+          <Property Name="Genvio" Type="double" Nullable="false" />
+          <Property Name="TotalGE" Type="double" Nullable="false" />
+          <Property Name="Saldo" Type="double" Nullable="false" />
+          <Property Name="Abono" Type="double" Nullable="false" />
+          <Property Name="DiasC" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaV" Type="date" Nullable="false" />
+          <Property Name="almacen" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="observacion" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="conpedidos">
+          <Key>
+            <PropertyRef Name="folio" />
+          </Key>
+          <Property Name="folio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Total" Type="double" Nullable="false" />
+          <Property Name="TotalSurtido" Type="double" Nullable="false" />
+          <Property Name="SNopaq" Type="int" Nullable="false" />
+          <Property Name="SNopzas" Type="int" Nullable="false" />
+          <Property Name="Nopaq" Type="int" Nullable="false" />
+          <Property Name="NoPzas" Type="int" Nullable="false" />
+          <Property Name="cantidadletra" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cliente" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="poblacion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="rfc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="curp" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="eliminar" Type="bool" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idcliente" Type="int" Nullable="false" />
+          <Property Name="idusuario" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.orden_salida' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="orden_salida">
+          <Key>
+            <PropertyRef Name="indexfolio" />
+            <PropertyRef Name="folio" />
+            <PropertyRef Name="foliodocto" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="modelo" />
+            <PropertyRef Name="descripcion" />
+            <PropertyRef Name="precio" />
+            <PropertyRef Name="total" />
+            <PropertyRef Name="codigob" />
+            <PropertyRef Name="nopzas" />
+            <PropertyRef Name="estado" />
+            <PropertyRef Name="fecha" />
+            <PropertyRef Name="eliminar" />
+          </Key>
+          <Property Name="indexfolio" Type="int" Nullable="false" />
+          <Property Name="folio" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="foliodocto" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="modelo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="precio" Type="double" Nullable="false" />
+          <Property Name="total" Type="double" Nullable="false" />
+          <Property Name="codigob" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="nopzas" Type="int" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="eliminar" Type="bool" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.pedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="pedidos">
+          <Key>
+            <PropertyRef Name="folio" />
+            <PropertyRef Name="fecha" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="Precio" />
+            <PropertyRef Name="Importe" />
+            <PropertyRef Name="cliente" />
+            <PropertyRef Name="nopzas" />
+            <PropertyRef Name="modelo" />
+            <PropertyRef Name="codigob" />
+            <PropertyRef Name="eliminar" />
+            <PropertyRef Name="estado" />
+            <PropertyRef Name="surtidas" />
+            <PropertyRef Name="pzasxpaq" />
+          </Key>
+          <Property Name="folio" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="Precio" Type="double" Nullable="false" />
+          <Property Name="Importe" Type="double" Nullable="false" />
+          <Property Name="cliente" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nopzas" Type="int" Nullable="false" />
+          <Property Name="modelo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codigob" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="eliminar" Type="bit" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="surtidas" Type="int" Nullable="false" />
+          <Property Name="pzasxpaq" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.configuracion.pedidos_pvf' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="pedidos_pvf">
+          <Key>
+            <PropertyRef Name="id_folio" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="modelo" />
+            <PropertyRef Name="descripcion" />
+            <PropertyRef Name="precio" />
+            <PropertyRef Name="total" />
+            <PropertyRef Name="codigob" />
+            <PropertyRef Name="pzasxpaq" />
+            <PropertyRef Name="pzastotales" />
+            <PropertyRef Name="eliminar" />
+          </Key>
+          <Property Name="id_folio" Type="int" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="modelo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="precio" Type="double" Nullable="false" />
+          <Property Name="total" Type="double" Nullable="false" />
+          <Property Name="codigob" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pzasxpaq" Type="int" Nullable="false" />
+          <Property Name="pzastotales" Type="int" Nullable="false" />
+          <Property Name="eliminar" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="codigob" />
+          </Key>
+          <Property Name="Modelo" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="pzasxpaq" Type="int" Nullable="false" />
+          <Property Name="l1" Type="double" Nullable="false" />
+          <Property Name="l2" Type="double" Nullable="false" />
+          <Property Name="l3" Type="double" Nullable="false" />
+          <Property Name="t03" Type="bool" Nullable="false" />
+          <Property Name="t05" Type="bool" Nullable="false" />
+          <Property Name="t07" Type="bool" Nullable="false" />
+          <Property Name="t09" Type="bool" Nullable="false" />
+          <Property Name="t11" Type="bool" Nullable="false" />
+          <Property Name="t13" Type="bool" Nullable="false" />
+          <Property Name="tch" Type="bool" Nullable="false" />
+          <Property Name="tm" Type="bool" Nullable="false" />
+          <Property Name="tg" Type="bool" Nullable="false" />
+          <Property Name="codigob" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="t03cant" Type="int" Nullable="false" />
+          <Property Name="t05cant" Type="int" Nullable="false" />
+          <Property Name="t07cant" Type="int" Nullable="false" />
+          <Property Name="t09cant" Type="int" Nullable="false" />
+          <Property Name="t11cant" Type="int" Nullable="false" />
+          <Property Name="t13cant" Type="int" Nullable="false" />
+          <Property Name="tchcant" Type="int" Nullable="false" />
+          <Property Name="tmcant" Type="int" Nullable="false" />
+          <Property Name="tgcant" Type="int" Nullable="false" />
+          <Property Name="existencia" Type="double" Nullable="false" />
+          <Property Name="compras" Type="double" Nullable="false" />
+          <Property Name="ventas" Type="double" Nullable="false" />
+          <Property Name="transito" Type="double" Nullable="false" />
+          <Property Name="traspasos" Type="double" Nullable="false" />
+          <Property Name="final" Type="double" Nullable="false" />
+          <Property Name="existencia_saldos" Type="double" Nullable="false" />
+          <Property Name="foto1" Type="int" Nullable="false" />
+          <Property Name="foto2" Type="int" Nullable="false" />
+          <Property Name="foto3" Type="int" Nullable="false" />
+          <Property Name="Pzasprod" Type="int" Nullable="false" />
+          <Property Name="costo_historico" Type="double" Nullable="false" />
+          <Property Name="costo_promedio" Type="double" Nullable="false" />
+          <Property Name="costo_actual" Type="double" Nullable="false" />
+          <Property Name="maquilero" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="descuento" Type="double" Nullable="false" />
+          <Property Name="apartado" Type="int" Nullable="false" />
+          <Property Name="corrida" Type="bool" Nullable="false" />
+          <Property Name="liberado" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="visitante">
+          <Key>
+            <PropertyRef Name="idVisitante" />
+          </Key>
+          <Property Name="idVisitante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreCliente" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="nombreNegocio" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="domicilio" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="noExt" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="colonia" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cp" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="localidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tel" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="cel" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="celDos" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fechaRegistro" Type="date" Nullable="false" />
+          <Property Name="folioVisita" Type="int" Nullable="false" />
+          <Property Name="idCliente" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="configuracionModelStoreContainer">
+          <EntitySet Name="cliente" EntityType="Self.cliente" Schema="configuracion" store:Type="Tables" />
+          <EntitySet Name="con_pedidospvf" EntityType="Self.con_pedidospvf" Schema="configuracion" store:Type="Tables" />
+          <EntitySet Name="conorden_salida" EntityType="Self.conorden_salida" Schema="configuracion" store:Type="Tables" />
+          <EntitySet Name="conpedidos" EntityType="Self.conpedidos" Schema="configuracion" store:Type="Tables" />
+          <EntitySet Name="producto" EntityType="Self.producto" Schema="configuracion" store:Type="Tables" />
+          <EntitySet Name="visitante" EntityType="Self.visitante" Schema="configuracion" store:Type="Tables" />
+          <EntitySet Name="orden_salida" EntityType="Self.orden_salida" store:Type="Tables" store:Schema="configuracion">
+            <DefiningQuery>SELECT
+`orden_salida`.`indexfolio`, 
+`orden_salida`.`folio`, 
+`orden_salida`.`foliodocto`, 
+`orden_salida`.`cantidad`, 
+`orden_salida`.`modelo`, 
+`orden_salida`.`descripcion`, 
+`orden_salida`.`precio`, 
+`orden_salida`.`total`, 
+`orden_salida`.`codigob`, 
+`orden_salida`.`nopzas`, 
+`orden_salida`.`estado`, 
+`orden_salida`.`fecha`, 
+`orden_salida`.`eliminar`
+FROM `orden_salida` AS `orden_salida`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="pedidos" EntityType="Self.pedidos" store:Type="Tables" store:Schema="configuracion">
+            <DefiningQuery>SELECT
+`pedidos`.`folio`, 
+`pedidos`.`fecha`, 
+`pedidos`.`Descripcion`, 
+`pedidos`.`cantidad`, 
+`pedidos`.`Precio`, 
+`pedidos`.`Importe`, 
+`pedidos`.`cliente`, 
+`pedidos`.`nopzas`, 
+`pedidos`.`modelo`, 
+`pedidos`.`codigob`, 
+`pedidos`.`eliminar`, 
+`pedidos`.`estado`, 
+`pedidos`.`surtidas`, 
+`pedidos`.`pzasxpaq`
+FROM `pedidos` AS `pedidos`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="pedidos_pvf" EntityType="Self.pedidos_pvf" store:Type="Tables" store:Schema="configuracion">
+            <DefiningQuery>SELECT
+`pedidos_pvf`.`id_folio`, 
+`pedidos_pvf`.`cantidad`, 
+`pedidos_pvf`.`modelo`, 
+`pedidos_pvf`.`descripcion`, 
+`pedidos_pvf`.`precio`, 
+`pedidos_pvf`.`total`, 
+`pedidos_pvf`.`codigob`, 
+`pedidos_pvf`.`pzasxpaq`, 
+`pedidos_pvf`.`pzastotales`, 
+`pedidos_pvf`.`eliminar`
+FROM `pedidos_pvf` AS `pedidos_pvf`</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="configuracionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="Index" />
+          </Key>
+          <Property Name="Index" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Clientef" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Av" Type="Boolean" Nullable="false" />
+          <Property Name="DomicilioF" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="coloniaF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cpF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Plazo_Credito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Limite_Credito" Type="Double" Nullable="false" />
+          <Property Name="PoblacionF" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RfcF" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CurpF" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelF" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="radiof" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContactoF" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContactoE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DomicilioE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PoblacionE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PaqE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FaxE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WebE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RecibeE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContactoT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DomicilioT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PoblacionT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FaxT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaE" Type="DateTime" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="agente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="movilf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_agente_venta" Type="Int32" Nullable="false" />
+          <Property Name="status_solicitud" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="politica_descuento" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="con_pedidospvf">
+          <Key>
+            <PropertyRef Name="id_folio" />
+          </Key>
+          <Property Name="id_folio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="id_cliente" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_agente_venta" Type="Int32" Nullable="false" />
+          <Property Name="factrem" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="total" Type="Double" Nullable="false" />
+          <Property Name="cantletra" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nopzas" Type="Int32" Nullable="false" />
+          <Property Name="nopaq" Type="Int32" Nullable="false" />
+          <Property Name="fechav1" Type="DateTime" Nullable="false" />
+          <Property Name="totalv1" Type="Double" Nullable="false" />
+          <Property Name="fechav2" Type="DateTime" Nullable="false" />
+          <Property Name="totalv2" Type="Double" Nullable="false" />
+          <Property Name="fechav3" Type="DateTime" Nullable="false" />
+          <Property Name="totalv3" Type="Double" Nullable="false" />
+          <Property Name="direnvio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="observacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="eliminar" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_entrega" Type="DateTime" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="conorden_salida">
+          <Key>
+            <PropertyRef Name="indexfolio" />
+          </Key>
+          <Property Name="indexfolio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="foliofact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="folio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="foliodocto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="cliente" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cs" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vendedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="paqueteria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="noguia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="noguia1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fact_rem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="total" Type="Double" Nullable="false" />
+          <Property Name="letra" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nopzas" Type="Int32" Nullable="false" />
+          <Property Name="nopaq" Type="Int32" Nullable="false" />
+          <Property Name="eliminar" Type="Boolean" Nullable="false" />
+          <Property Name="Genvio" Type="Double" Nullable="false" />
+          <Property Name="TotalGE" Type="Double" Nullable="false" />
+          <Property Name="Saldo" Type="Double" Nullable="false" />
+          <Property Name="Abono" Type="Double" Nullable="false" />
+          <Property Name="DiasC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaV" Type="DateTime" Nullable="false" />
+          <Property Name="almacen" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="observacion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="conpedido">
+          <Key>
+            <PropertyRef Name="folio" />
+          </Key>
+          <Property Name="folio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" />
+          <Property Name="Total" Type="Double" Nullable="false" />
+          <Property Name="TotalSurtido" Type="Double" Nullable="false" />
+          <Property Name="SNopaq" Type="Int32" Nullable="false" />
+          <Property Name="SNopzas" Type="Int32" Nullable="false" />
+          <Property Name="Nopaq" Type="Int32" Nullable="false" />
+          <Property Name="NoPzas" Type="Int32" Nullable="false" />
+          <Property Name="cantidadletra" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="poblacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rfc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="curp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="eliminar" Type="Boolean" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idcliente" Type="Int32" Nullable="false" />
+          <Property Name="idusuario" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="codigob" />
+          </Key>
+          <Property Name="Modelo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pzasxpaq" Type="Int32" Nullable="false" />
+          <Property Name="l1" Type="Double" Nullable="false" />
+          <Property Name="l2" Type="Double" Nullable="false" />
+          <Property Name="l3" Type="Double" Nullable="false" />
+          <Property Name="t03" Type="Boolean" Nullable="false" />
+          <Property Name="t05" Type="Boolean" Nullable="false" />
+          <Property Name="t07" Type="Boolean" Nullable="false" />
+          <Property Name="t09" Type="Boolean" Nullable="false" />
+          <Property Name="t11" Type="Boolean" Nullable="false" />
+          <Property Name="t13" Type="Boolean" Nullable="false" />
+          <Property Name="tch" Type="Boolean" Nullable="false" />
+          <Property Name="tm" Type="Boolean" Nullable="false" />
+          <Property Name="tg" Type="Boolean" Nullable="false" />
+          <Property Name="codigob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="t03cant" Type="Int32" Nullable="false" />
+          <Property Name="t05cant" Type="Int32" Nullable="false" />
+          <Property Name="t07cant" Type="Int32" Nullable="false" />
+          <Property Name="t09cant" Type="Int32" Nullable="false" />
+          <Property Name="t11cant" Type="Int32" Nullable="false" />
+          <Property Name="t13cant" Type="Int32" Nullable="false" />
+          <Property Name="tchcant" Type="Int32" Nullable="false" />
+          <Property Name="tmcant" Type="Int32" Nullable="false" />
+          <Property Name="tgcant" Type="Int32" Nullable="false" />
+          <Property Name="existencia" Type="Double" Nullable="false" />
+          <Property Name="compras" Type="Double" Nullable="false" />
+          <Property Name="ventas" Type="Double" Nullable="false" />
+          <Property Name="transito" Type="Double" Nullable="false" />
+          <Property Name="traspasos" Type="Double" Nullable="false" />
+          <Property Name="final" Type="Double" Nullable="false" />
+          <Property Name="existencia_saldos" Type="Double" Nullable="false" />
+          <Property Name="foto1" Type="Int32" Nullable="false" />
+          <Property Name="foto2" Type="Int32" Nullable="false" />
+          <Property Name="foto3" Type="Int32" Nullable="false" />
+          <Property Name="Pzasprod" Type="Int32" Nullable="false" />
+          <Property Name="costo_historico" Type="Double" Nullable="false" />
+          <Property Name="costo_promedio" Type="Double" Nullable="false" />
+          <Property Name="costo_actual" Type="Double" Nullable="false" />
+          <Property Name="maquilero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="descuento" Type="Double" Nullable="false" />
+          <Property Name="apartado" Type="Int32" Nullable="false" />
+          <Property Name="corrida" Type="Boolean" Nullable="false" />
+          <Property Name="liberado" Type="SByte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="visitante">
+          <Key>
+            <PropertyRef Name="idVisitante" />
+          </Key>
+          <Property Name="idVisitante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreCliente" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombreNegocio" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="domicilio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="noExt" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="colonia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cp" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="localidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="celDos" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaRegistro" Type="DateTime" Nullable="false" />
+          <Property Name="folioVisita" Type="Int32" Nullable="false" />
+          <Property Name="idCliente" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="orden_salida">
+          <Key>
+            <PropertyRef Name="indexfolio" />
+            <PropertyRef Name="folio" />
+            <PropertyRef Name="foliodocto" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="modelo" />
+            <PropertyRef Name="descripcion" />
+            <PropertyRef Name="precio" />
+            <PropertyRef Name="total" />
+            <PropertyRef Name="codigob" />
+            <PropertyRef Name="nopzas" />
+            <PropertyRef Name="estado" />
+            <PropertyRef Name="fecha" />
+            <PropertyRef Name="eliminar" />
+          </Key>
+          <Property Name="indexfolio" Type="Int32" Nullable="false" />
+          <Property Name="folio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="foliodocto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="precio" Type="Double" Nullable="false" />
+          <Property Name="total" Type="Double" Nullable="false" />
+          <Property Name="codigob" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nopzas" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="eliminar" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pedido">
+          <Key>
+            <PropertyRef Name="folio" />
+            <PropertyRef Name="fecha" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="Precio" />
+            <PropertyRef Name="Importe" />
+            <PropertyRef Name="cliente" />
+            <PropertyRef Name="nopzas" />
+            <PropertyRef Name="modelo" />
+            <PropertyRef Name="codigob" />
+            <PropertyRef Name="eliminar" />
+            <PropertyRef Name="estado" />
+            <PropertyRef Name="surtidas" />
+            <PropertyRef Name="pzasxpaq" />
+          </Key>
+          <Property Name="folio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Precio" Type="Double" Nullable="false" />
+          <Property Name="Importe" Type="Double" Nullable="false" />
+          <Property Name="cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nopzas" Type="Int32" Nullable="false" />
+          <Property Name="modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codigob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="eliminar" Type="Boolean" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="surtidas" Type="Int32" Nullable="false" />
+          <Property Name="pzasxpaq" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pedidos_pvf">
+          <Key>
+            <PropertyRef Name="id_folio" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="modelo" />
+            <PropertyRef Name="descripcion" />
+            <PropertyRef Name="precio" />
+            <PropertyRef Name="total" />
+            <PropertyRef Name="codigob" />
+            <PropertyRef Name="pzasxpaq" />
+            <PropertyRef Name="pzastotales" />
+            <PropertyRef Name="eliminar" />
+          </Key>
+          <Property Name="id_folio" Type="Int32" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="modelo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="precio" Type="Double" Nullable="false" />
+          <Property Name="total" Type="Double" Nullable="false" />
+          <Property Name="codigob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pzasxpaq" Type="Int32" Nullable="false" />
+          <Property Name="pzastotales" Type="Int32" Nullable="false" />
+          <Property Name="eliminar" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="configuracionEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="clientes" EntityType="Self.cliente" />
+          <EntitySet Name="con_pedidospvf" EntityType="Self.con_pedidospvf" />
+          <EntitySet Name="conorden_salida" EntityType="Self.conorden_salida" />
+          <EntitySet Name="conpedidos" EntityType="Self.conpedido" />
+          <EntitySet Name="productoes" EntityType="Self.producto" />
+          <EntitySet Name="visitantes" EntityType="configuracionModel.visitante" />
+          <EntitySet Name="orden_salida" EntityType="Self.orden_salida" />
+          <EntitySet Name="pedidos" EntityType="Self.pedido" />
+          <EntitySet Name="pedidos_pvf" EntityType="Self.pedidos_pvf" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="configuracionModelStoreContainer" CdmEntityContainer="configuracionEntities">
+          <EntitySetMapping Name="clientes">
+            <EntityTypeMapping TypeName="configuracionModel.cliente">
+              <MappingFragment StoreEntitySet="cliente">
+                <ScalarProperty Name="Index" ColumnName="Index" />
+                <ScalarProperty Name="Clientef" ColumnName="Clientef" />
+                <ScalarProperty Name="Av" ColumnName="Av" />
+                <ScalarProperty Name="DomicilioF" ColumnName="DomicilioF" />
+                <ScalarProperty Name="coloniaF" ColumnName="coloniaF" />
+                <ScalarProperty Name="cpF" ColumnName="cpF" />
+                <ScalarProperty Name="Plazo_Credito" ColumnName="Plazo_Credito" />
+                <ScalarProperty Name="Limite_Credito" ColumnName="Limite_Credito" />
+                <ScalarProperty Name="PoblacionF" ColumnName="PoblacionF" />
+                <ScalarProperty Name="RfcF" ColumnName="RfcF" />
+                <ScalarProperty Name="CurpF" ColumnName="CurpF" />
+                <ScalarProperty Name="TelF" ColumnName="TelF" />
+                <ScalarProperty Name="radiof" ColumnName="radiof" />
+                <ScalarProperty Name="ContactoF" ColumnName="ContactoF" />
+                <ScalarProperty Name="ContactoE" ColumnName="ContactoE" />
+                <ScalarProperty Name="DomicilioE" ColumnName="DomicilioE" />
+                <ScalarProperty Name="PoblacionE" ColumnName="PoblacionE" />
+                <ScalarProperty Name="TelE" ColumnName="TelE" />
+                <ScalarProperty Name="PaqE" ColumnName="PaqE" />
+                <ScalarProperty Name="FaxE" ColumnName="FaxE" />
+                <ScalarProperty Name="EmailE" ColumnName="EmailE" />
+                <ScalarProperty Name="WebE" ColumnName="WebE" />
+                <ScalarProperty Name="RecibeE" ColumnName="RecibeE" />
+                <ScalarProperty Name="ContactoT" ColumnName="ContactoT" />
+                <ScalarProperty Name="DomicilioT" ColumnName="DomicilioT" />
+                <ScalarProperty Name="PoblacionT" ColumnName="PoblacionT" />
+                <ScalarProperty Name="TelT" ColumnName="TelT" />
+                <ScalarProperty Name="FaxT" ColumnName="FaxT" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="FechaE" ColumnName="FechaE" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="agente" ColumnName="agente" />
+                <ScalarProperty Name="movilf" ColumnName="movilf" />
+                <ScalarProperty Name="id_agente_venta" ColumnName="id_agente_venta" />
+                <ScalarProperty Name="status_solicitud" ColumnName="status_solicitud" />
+                <ScalarProperty Name="politica_descuento" ColumnName="politica_descuento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="con_pedidospvf">
+            <EntityTypeMapping TypeName="configuracionModel.con_pedidospvf">
+              <MappingFragment StoreEntitySet="con_pedidospvf">
+                <ScalarProperty Name="id_folio" ColumnName="id_folio" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+                <ScalarProperty Name="id_agente_venta" ColumnName="id_agente_venta" />
+                <ScalarProperty Name="factrem" ColumnName="factrem" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="cantletra" ColumnName="cantletra" />
+                <ScalarProperty Name="nopzas" ColumnName="nopzas" />
+                <ScalarProperty Name="nopaq" ColumnName="nopaq" />
+                <ScalarProperty Name="fechav1" ColumnName="fechav1" />
+                <ScalarProperty Name="totalv1" ColumnName="totalv1" />
+                <ScalarProperty Name="fechav2" ColumnName="fechav2" />
+                <ScalarProperty Name="totalv2" ColumnName="totalv2" />
+                <ScalarProperty Name="fechav3" ColumnName="fechav3" />
+                <ScalarProperty Name="totalv3" ColumnName="totalv3" />
+                <ScalarProperty Name="direnvio" ColumnName="direnvio" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+                <ScalarProperty Name="eliminar" ColumnName="eliminar" />
+                <ScalarProperty Name="fecha_entrega" ColumnName="fecha_entrega" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="conorden_salida">
+            <EntityTypeMapping TypeName="configuracionModel.conorden_salida">
+              <MappingFragment StoreEntitySet="conorden_salida">
+                <ScalarProperty Name="indexfolio" ColumnName="indexfolio" />
+                <ScalarProperty Name="foliofact" ColumnName="foliofact" />
+                <ScalarProperty Name="folio" ColumnName="folio" />
+                <ScalarProperty Name="foliodocto" ColumnName="foliodocto" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="cs" ColumnName="cs" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="vendedor" ColumnName="vendedor" />
+                <ScalarProperty Name="paqueteria" ColumnName="paqueteria" />
+                <ScalarProperty Name="noguia" ColumnName="noguia" />
+                <ScalarProperty Name="noguia1" ColumnName="noguia1" />
+                <ScalarProperty Name="fact_rem" ColumnName="fact_rem" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="letra" ColumnName="letra" />
+                <ScalarProperty Name="nopzas" ColumnName="nopzas" />
+                <ScalarProperty Name="nopaq" ColumnName="nopaq" />
+                <ScalarProperty Name="eliminar" ColumnName="eliminar" />
+                <ScalarProperty Name="Genvio" ColumnName="Genvio" />
+                <ScalarProperty Name="TotalGE" ColumnName="TotalGE" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="Abono" ColumnName="Abono" />
+                <ScalarProperty Name="DiasC" ColumnName="DiasC" />
+                <ScalarProperty Name="FechaV" ColumnName="FechaV" />
+                <ScalarProperty Name="almacen" ColumnName="almacen" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="conpedidos">
+            <EntityTypeMapping TypeName="configuracionModel.conpedido">
+              <MappingFragment StoreEntitySet="conpedidos">
+                <ScalarProperty Name="folio" ColumnName="folio" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="TotalSurtido" ColumnName="TotalSurtido" />
+                <ScalarProperty Name="SNopaq" ColumnName="SNopaq" />
+                <ScalarProperty Name="SNopzas" ColumnName="SNopzas" />
+                <ScalarProperty Name="Nopaq" ColumnName="Nopaq" />
+                <ScalarProperty Name="NoPzas" ColumnName="NoPzas" />
+                <ScalarProperty Name="cantidadletra" ColumnName="cantidadletra" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="poblacion" ColumnName="poblacion" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="rfc" ColumnName="rfc" />
+                <ScalarProperty Name="curp" ColumnName="curp" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="eliminar" ColumnName="eliminar" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="idcliente" ColumnName="idcliente" />
+                <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productoes">
+            <EntityTypeMapping TypeName="configuracionModel.producto">
+              <MappingFragment StoreEntitySet="producto">
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="pzasxpaq" ColumnName="pzasxpaq" />
+                <ScalarProperty Name="l1" ColumnName="l1" />
+                <ScalarProperty Name="l2" ColumnName="l2" />
+                <ScalarProperty Name="l3" ColumnName="l3" />
+                <ScalarProperty Name="t03" ColumnName="t03" />
+                <ScalarProperty Name="t05" ColumnName="t05" />
+                <ScalarProperty Name="t07" ColumnName="t07" />
+                <ScalarProperty Name="t09" ColumnName="t09" />
+                <ScalarProperty Name="t11" ColumnName="t11" />
+                <ScalarProperty Name="t13" ColumnName="t13" />
+                <ScalarProperty Name="tch" ColumnName="tch" />
+                <ScalarProperty Name="tm" ColumnName="tm" />
+                <ScalarProperty Name="tg" ColumnName="tg" />
+                <ScalarProperty Name="codigob" ColumnName="codigob" />
+                <ScalarProperty Name="t03cant" ColumnName="t03cant" />
+                <ScalarProperty Name="t05cant" ColumnName="t05cant" />
+                <ScalarProperty Name="t07cant" ColumnName="t07cant" />
+                <ScalarProperty Name="t09cant" ColumnName="t09cant" />
+                <ScalarProperty Name="t11cant" ColumnName="t11cant" />
+                <ScalarProperty Name="t13cant" ColumnName="t13cant" />
+                <ScalarProperty Name="tchcant" ColumnName="tchcant" />
+                <ScalarProperty Name="tmcant" ColumnName="tmcant" />
+                <ScalarProperty Name="tgcant" ColumnName="tgcant" />
+                <ScalarProperty Name="existencia" ColumnName="existencia" />
+                <ScalarProperty Name="compras" ColumnName="compras" />
+                <ScalarProperty Name="ventas" ColumnName="ventas" />
+                <ScalarProperty Name="transito" ColumnName="transito" />
+                <ScalarProperty Name="traspasos" ColumnName="traspasos" />
+                <ScalarProperty Name="final" ColumnName="final" />
+                <ScalarProperty Name="existencia_saldos" ColumnName="existencia_saldos" />
+                <ScalarProperty Name="foto1" ColumnName="foto1" />
+                <ScalarProperty Name="foto2" ColumnName="foto2" />
+                <ScalarProperty Name="foto3" ColumnName="foto3" />
+                <ScalarProperty Name="Pzasprod" ColumnName="Pzasprod" />
+                <ScalarProperty Name="costo_historico" ColumnName="costo_historico" />
+                <ScalarProperty Name="costo_promedio" ColumnName="costo_promedio" />
+                <ScalarProperty Name="costo_actual" ColumnName="costo_actual" />
+                <ScalarProperty Name="maquilero" ColumnName="maquilero" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="descuento" ColumnName="descuento" />
+                <ScalarProperty Name="apartado" ColumnName="apartado" />
+                <ScalarProperty Name="corrida" ColumnName="corrida" />
+                <ScalarProperty Name="liberado" ColumnName="liberado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="visitantes">
+            <EntityTypeMapping TypeName="configuracionModel.visitante">
+              <MappingFragment StoreEntitySet="visitante">
+                <ScalarProperty Name="idVisitante" ColumnName="idVisitante" />
+                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+                <ScalarProperty Name="nombreNegocio" ColumnName="nombreNegocio" />
+                <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+                <ScalarProperty Name="noExt" ColumnName="noExt" />
+                <ScalarProperty Name="colonia" ColumnName="colonia" />
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="localidad" ColumnName="localidad" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="cel" ColumnName="cel" />
+                <ScalarProperty Name="celDos" ColumnName="celDos" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+                <ScalarProperty Name="folioVisita" ColumnName="folioVisita" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orden_salida">
+            <EntityTypeMapping TypeName="configuracionModel.orden_salida">
+              <MappingFragment StoreEntitySet="orden_salida">
+                <ScalarProperty Name="indexfolio" ColumnName="indexfolio" />
+                <ScalarProperty Name="folio" ColumnName="folio" />
+                <ScalarProperty Name="foliodocto" ColumnName="foliodocto" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="codigob" ColumnName="codigob" />
+                <ScalarProperty Name="nopzas" ColumnName="nopzas" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="eliminar" ColumnName="eliminar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pedidos">
+            <EntityTypeMapping TypeName="configuracionModel.pedido">
+              <MappingFragment StoreEntitySet="pedidos">
+                <ScalarProperty Name="folio" ColumnName="folio" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="nopzas" ColumnName="nopzas" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="codigob" ColumnName="codigob" />
+                <ScalarProperty Name="eliminar" ColumnName="eliminar" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="surtidas" ColumnName="surtidas" />
+                <ScalarProperty Name="pzasxpaq" ColumnName="pzasxpaq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pedidos_pvf">
+            <EntityTypeMapping TypeName="configuracionModel.pedidos_pvf">
+              <MappingFragment StoreEntitySet="pedidos_pvf">
+                <ScalarProperty Name="id_folio" ColumnName="id_folio" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="codigob" ColumnName="codigob" />
+                <ScalarProperty Name="pzasxpaq" ColumnName="pzasxpaq" />
+                <ScalarProperty Name="pzastotales" ColumnName="pzastotales" />
+                <ScalarProperty Name="eliminar" ColumnName="eliminar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
