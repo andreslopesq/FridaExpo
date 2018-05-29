@@ -4,114 +4,70 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="col-lg-12">
+        
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nombreCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nombreNegocio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.domicilio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.noExt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.colonia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.localidad)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.celDos)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fechaRegistro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.folioVisita)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idCliente)
-        </th>
-        <th></th>
-    </tr>
+    @foreach (var item in Model)
+    {
+        <div class="box box-success">
+            <div class="box-header visible-lg visble-md visble-sm">
+                <h3 class="box-title">Área -Cargo</h3>
+            </div>
+            <div class="box-body">
+                <!---Tabla de  dispositivos  grandes -->
+                <div class="">
+                    <div class="col-lg-12 col-md-12  no-padding col-lista text-center">
+                        <div class="col-lg-1 col-md-1 padding-8">
+                            <dl class="">
+                                <dt><i>@Html.DisplayFor(modelItem => item.nombreCliente)</i></dt>
+                                <dd class="hidden-lg text-muted">Nombre</dd>
+                            </dl>
+                        </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombreCliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombreNegocio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.domicilio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.noExt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.colonia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cp)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.localidad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.celDos)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fechaRegistro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.folioVisita)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idCliente)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idVisitante }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idVisitante }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idVisitante })
-        </td>
-    </tr>
-}
 
-</table>
+                        <div class="col-lg-1 col-md-1 padding-8">
+                            <dl class="">
+                                <dt><i>@Html.DisplayFor(modelItem => item.nombreNegocio)</i> </dt>
+                                <dd class=" hidden-lg text-muted">Negocio</dd>
+                            </dl>
+                        </div>
+
+                        <div class="col-lg-1 col-md-1 padding-8">
+                            <dl class="">
+                                <dt><i>@Html.DisplayFor(modelItem => item.tel)</i> </dt>
+                                <dd class=" hidden-lg text-muted">Tel</dd>
+                            </dl>
+                        </div>
+
+                        <div class="col-lg-1 col-md-1 padding-8">
+                            <dl class="">
+                                <dt><i>@Html.DisplayFor(modelItem => item.cel)</i> </dt>
+                                <dd class="hidden-lg text-muted">Cel</dd>
+                            </dl>
+                        </div>
+
+
+                        <div class="col-lg-1 col-md-1 padding-8">
+                            <dl class="">
+                                <dt><i>@Html.DisplayFor(modelItem => item.email)</i> </dt>
+                                <dd class="hidden-lg text-muted">Email</dd>
+                            </dl>
+                        </div>
+
+
+                        <div class="col-lg-1 col-md-1 padding-8">
+                            <dl class="">
+                                <dt><i class="fa fa-pencil"></i>    <i class="fa fa-eye"></i>     <i class="fa fa-trash"></i>  </dt>
+
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+</div>
+
+        

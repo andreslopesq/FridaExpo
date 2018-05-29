@@ -3,12 +3,12 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
     <title>@ViewBag.Title</title>
 
 
-    <link rel="shortcut icon" href="~/img/remembeeer.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="~/img/LogoGrande.PNG" type="image/x-icon" />
     <link href="~/Content/style.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/animate.css" rel="stylesheet" type="text/css" />
@@ -18,21 +18,69 @@
     <link href="~/Content/pretty-checkable.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/flatly.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/app.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/navbar.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/fontawesome-all.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
 
 
 
 </head>
 <body>
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <img src="~/img/LOGO FRIDA JEANS.png" height="70" width="200" style="margin-left:200px">
+
+
+    <script>
+        $(document).ready(main);
+        var contador = 1;
+        function main() {
+            $('.menu_bar').click(function () {
+                // $('nav').toggle(); 
+
+                if (contador == 1) {
+                    $('nav').animate({
+                        left: '0'
+                    });
+                    contador = 0;
+                } else {
+                    contador = 1;
+                    $('nav').animate({
+                        left: '-100%'
+                    });
+                }
+
+            });
+
+        };
+    </script>
+
+
+    
+    <header>
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="menu_bar">
+                    <center><img src="~/img/LOGO FRIDA JEANS.png" height="70" width="180"></center>
+                    <span class="fa fa-bars" style="margin-top:-50px"></span>
+            </div>   
+                   <nav>
+                       <center>
+                           <ul>
+                               <li><a href="@Url.Action("Index", "Home")"><span class="fa fa-home"></span>INICIO</a></li>
+                               <li><a href="@Url.Action("Create", "Clientes")"><span class="fa fa-user-circle"></span>CLIENTES</a></li>
+                               <li><a href="@Url.Action("Create", "Visitantes")"><span class="fa fa-users"></span>VISITANTES</a></li>
+                               <li><a href="@Url.Action("Create", "Productos")"><span class="fa fa-box-open"></span>PRODUCTOS</a></li>
+                           </ul>
+
+                       </center>
+                </nav>
+
+
 
             </div>
         </div>
-    </div>
-
+    </header>
     <div class="container body-content" style="margin-top: 100px">
         @RenderBody()
         <hr />
