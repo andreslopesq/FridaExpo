@@ -22,11 +22,9 @@
     <link href="~/Content/fontawesome-all.css" rel="stylesheet" type="text/css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  
 
-
-
-
+    
 </head>
 <body>
 
@@ -36,7 +34,7 @@
         var contador = 1;
         function main() {
             $('.menu_bar').click(function () {
-                // $('nav').toggle(); 
+                // $('nav').toggle();
 
                 if (contador == 1) {
                     $('nav').animate({
@@ -55,40 +53,16 @@
         };
     </script>
 
+ 
 
-    
-    <header>
-        <div class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="menu_bar">
-                    <center><img src="~/img/LOGO FRIDA JEANS.png" height="70" width="180"></center>
-                    <span class="fa fa-bars" style="margin-top:-50px"></span>
-            </div>   
-                   <nav>
-                       <center>
-                           <ul>
-                               <li><a href="@Url.Action("Index", "Home")"><span class="fa fa-home"></span>INICIO</a></li>
-                               <li><a href="@Url.Action("Create", "Clientes")"><span class="fa fa-user-circle"></span>CLIENTES</a></li>
-                               <li><a href="@Url.Action("Create", "Visitantes")"><span class="fa fa-users"></span>VISITANTES</a></li>
-                               <li><a href="@Url.Action("Create", "Productos")"><span class="fa fa-box-open"></span>PRODUCTOS</a></li>
-                           </ul>
-
-                       </center>
-                </nav>
-
-
-
+            <div class="container body-content" style="margin-top: 100px">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - FRIDA JEANS</p>
+                </footer>
             </div>
-        </div>
-    </header>
-    <div class="container body-content" style="margin-top: 100px">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - FRIDA JEANS</p>
-        </footer>
-    </div>
-     
-    @RenderSection("scripts", required: false)
+
+            @RenderSection("scripts", required: false)
 </body>
 </html>

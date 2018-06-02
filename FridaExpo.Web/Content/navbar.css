@@ -14,10 +14,10 @@ header {
 }
  
 header nav {
-	width:90%;
+	width:80%;
 	max-width:1000px;
 	margin:20px auto;
-	background:rgb(81, 23, 53);
+	background:rgba(236, 75, 159, 0.4);
 }
  
 .menu_bar {
@@ -34,7 +34,7 @@ header nav ul li {
 }
  
 header nav ul li a {
-	color:#fff;
+	color:#713354;
 	padding:20px;
 	display:block;
 	text-decoration:none;
@@ -45,7 +45,8 @@ header nav ul li span {
 }
  
 header nav ul li a:hover {
-	background:rgb(85, 8, 48);
+	background:rgba(236, 75, 159, 0.52);
+    color:#FFFFFA;
 }
  
 section {
@@ -54,7 +55,7 @@ section {
  
 @media screen and (max-width:800px ) {
 	header nav {
-		width:80%;
+		width:45%;
 		height:100%;
 		left:-100%;
 		margin:0;
@@ -64,7 +65,7 @@ section {
 	header nav ul li {
 		display:block;
 		float:none;
-		border-bottom:1px solid rgba(255,255,255, .3);
+		border-bottom:1px solid #FFFFFA;
 	}
  
 	.menu_bar {

@@ -4,6 +4,26 @@
     ViewBag.Title = "Edit";
 }
 
+<header>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="menu_bar">
+                <center><img src="~/img/LOGO FRIDA JEANS.png" height="70" width="180"></center>
+                <span class="fa fa-bars" style="margin-top:-50px"></span>
+            </div>
+            <nav>
+                <center>
+                    <ul>
+                        <li><a href="@Url.Action("Create", "Visitantes")"><span class="far fa-edit"></span>ALTA</a></li>
+                        <li><a href="@Url.Action("Index", "Visitantes")"><span class="far fa-list-alt"></span>CONSULTA</a></li>
+                        <li><a href="@Url.Action("Index", "Home")"><span class="fas fa-sign-out"></span>SALIR</a></li>
+                    </ul>
+                </center>
+            </nav>
+
+        </div>
+    </div>
+</header>
 <h2>Edit</h2>
 
 
