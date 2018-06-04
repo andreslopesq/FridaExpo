@@ -214,6 +214,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Funciones.cs" />
     <Compile Include="Models\cliente.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>

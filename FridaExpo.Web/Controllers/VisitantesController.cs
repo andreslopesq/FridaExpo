@@ -1,19 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using FridaExpo.Web.Models;
-
-namespace FridaExpo.Web.Controllers
+﻿namespace FridaExpo.Web.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Net;
+    using System.Web;
+    using System.Web.Mvc;
+    using FridaExpo.Web.Models;
+    using FridaExpo.Web.Helpers;
+
     public class VisitantesController : Controller
     {
+
         private FridaExpoDBContext db = new FridaExpoDBContext();
+        private Funciones funciones= new Funciones();
 
         // GET: Visitantes
         public async Task<ActionResult> Index()
@@ -47,10 +50,14 @@ namespace FridaExpo.Web.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "idVisitante,nombreCliente,nombreNegocio,domicilio,noExt,colonia,cp,localidad,estado,tel,cel,celDos,email,fechaRegistro,folioVisita,idCliente")] visitante visitante)
+        public async Task<ActionResult> Create([Bind(Include = "idVisitante,nombreCliente,nombreNegocio,domicilio,noExt,colonia,cp,localidad,estado,tel,cel,celDos,email")] visitante visitante)
         {
             if (ModelState.IsValid)
             {
+                visitante.fechaRegistro = DateTime.Today;
+                visitante.idCliente = 0;
+                visitante.folioVisita = funciones.GetFolio("visitante");
+
                 db.visitantes.Add(visitante);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
