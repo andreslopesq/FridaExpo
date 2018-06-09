@@ -17,11 +17,31 @@
 
         private FridaExpoDBContext db = new FridaExpoDBContext();
         private Funciones funciones= new Funciones();
+        int idActual = 0;
 
         // GET: Visitantes
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            return View(await db.visitantes.ToListAsync());
+            return View();
+        }
+
+      
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Index([Bind(Include = "parametro")] visitante visitante)
+        {
+            if (ModelState.IsValid)
+            {
+                visitante.fechaRegistro = DateTime.Today;
+                visitante.idCliente = 0;
+                // visitante.folioVisita = funciones.GetFolio("visitante");
+
+                db.visitantes.Add(visitante);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Create");
+            }
+
+            return View(visitante);
         }
 
         // GET: Visitantes/Details/5
@@ -56,11 +76,11 @@
             {
                 visitante.fechaRegistro = DateTime.Today;
                 visitante.idCliente = 0;
-                visitante.folioVisita = funciones.GetFolio("visitante");
+            // visitante.folioVisita = funciones.GetFolio("visitante");
 
                 db.visitantes.Add(visitante);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
 
             return View(visitante);
@@ -90,9 +110,29 @@
         {
             if (ModelState.IsValid)
             {
+               
+
                 db.Entry(visitante).State = EntityState.Modified;
+                visitante.fechaRegistro = DateTime.Today;
+                idActual = visitante.idVisitante;
+                visitante.idCliente = 0;
+                visitante.folioVisita = funciones.GetFolio("visitante");
+
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("MostrarActualizado");
+            }
+            return View(visitante);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> MostrarActualizado(int ? id) {
+
+            visitante visitante = await db.visitantes.FindAsync(idActual);
+            if (visitante == null)
+            {
+                return HttpNotFound();
             }
             return View(visitante);
         }

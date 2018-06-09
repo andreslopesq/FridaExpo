@@ -28,86 +28,79 @@
         
     <p class="col-lg-12 col-md-12">
         <p class="input-group">            
-                <input type="text" class="form-control" placeholder="Buscar">
+                <input type="text" class="form-control" placeholder="Buscar..." style="text-transform:uppercase" id="buscar">
                 <span class="input-group-btn">
                     <button class="btn btn-danger" type="button" style="background-color:rgb(235, 75, 159)">
                         <i class="fa fa-search"></i>
                     </button>
                 </span>          
         </p>
-    </div>
+    </p>
+ </div>
 
     <br />
     
     @foreach (var item in Model)
     {
-        <div class="box box-success">
-             <div class="box-body">
-                
-                 
-
-
-                <div class="">
-
-                    
+        <div class="buscar1" id="constante">
+            <div class="box box-success ">
+                <div class="box-body">
+                    <div class="">
+                        <div class="col-lg-12 col-md-12  no-padding col-lista text-center">
 
 
 
-                    <div class="col-lg-12 col-md-12  no-padding col-lista text-center">
-                        
-                        
-                       
-                        
-                        
-                        
-                        <div class="col-lg-1 col-md-1 padding-8">
-                            <dl class="">
-                                <dt><i>@Html.DisplayFor(modelItem => item.nombreCliente)</i></dt>
-                                <dd class="hidden-lg text-muted">Nombre</dd>
-                            </dl>
-                        </div>
+
+                            <div class="col-lg-1 col-md-1 padding-8" >
+                                <dl class="">
+                                    <dt ><i>@Html.DisplayFor(modelItem => item.nombreCliente)</i></dt>
+                                    <dd class="hidden-lg text-muted">Nombre</dd>
+                                </dl>
+                            </div>
 
 
-                        <div class="col-lg-1 col-md-1 padding-8">
-                            <dl class="">
-                                <dt><i>@Html.DisplayFor(modelItem => item.nombreNegocio)</i> </dt>
-                                <dd class="hidden-lg text-muted">Negocio</dd>
-                            </dl>
-                        </div>
+                            <div class="col-lg-1 col-md-1 padding-8">
+                                <dl class="">
+                                    <dt><i>@Html.DisplayFor(modelItem => item.nombreNegocio)</i> </dt>
+                                    <dd class="hidden-lg text-muted">Negocio</dd>
+                                </dl>
+                            </div>
 
-                        <div class="col-lg-1 col-md-1 padding-8">
-                            <dl class="">
-                                <dt><i>@Html.DisplayFor(modelItem => item.tel)</i> </dt>
-                                <dd class="hidden-lg text-muted">Tel</dd>
-                            </dl>
-                        </div>
+                            <div class="col-lg-1 col-md-1 padding-8">
+                                <dl class="">
+                                    <dt><i>@Html.DisplayFor(modelItem => item.tel)</i> </dt>
+                                    <dd class="hidden-lg text-muted">Tel</dd>
+                                </dl>
+                            </div>
 
-                        <div class="col-lg-1 col-md-1 padding-8">
-                            <dl class="">
-                                <dt><i>@Html.DisplayFor(modelItem => item.cel)</i> </dt>
-                                <dd class="hidden-lg text-muted">Cel</dd>
-                            </dl>
-                        </div>
-
-
-                        <div class="col-lg-1 col-md-1 padding-8">
-                            <dl class="">
-                                <dt><i>@Html.DisplayFor(modelItem => item.email)</i> </dt>
-                                <dd class="hidden-lg text-muted">Email</dd>
-                            </dl>
-                        </div>
+                            <div class="col-lg-1 col-md-1 padding-8">
+                                <dl class="">
+                                    <dt><i>@Html.DisplayFor(modelItem => item.cel)</i> </dt>
+                                    <dd class="hidden-lg text-muted">Cel</dd>
+                                </dl>
+                            </div>
 
 
-                        <div class="col-lg-1 col-md-1 padding-8">
-                            <dl class="">
-                                <dt><a href="@Url.Action("Edit","Visitantes", new {id=item.idVisitante})"><i class="fa fa-pencil text-yellow"></i> </a>    <a href="@Url.Action("Details","Visitantes", new {id=item.idVisitante})"><i class="fa fa-eye text-blue"></i></a>     <a href="@Url.Action("Delete","Visitantes", new {id=item.idVisitante})"><i class="fa fa-trash text-maroon"></i></a>  </dt>
+                            <div class="col-lg-1 col-md-1 padding-8">
+                                <dl class="">
+                                    <dt><i>@Html.DisplayFor(modelItem => item.email)</i> </dt>
+                                    <dd class="hidden-lg text-muted">Email</dd>
+                                </dl>
+                            </div>
 
-                            </dl>
+
+                            <div class="col-lg-1 col-md-1 padding-8">
+                                <dl class="">
+                                    <dt><a href="@Url.Action("Edit","Visitantes", new {id=item.idVisitante})"><i class="fa fa-pencil text-yellow"></i> </a>    <a href="@Url.Action("Details","Visitantes", new {id=item.idVisitante})"><i class="fa fa-eye text-blue"></i></a>     <a href="@Url.Action("Delete","Visitantes", new {id=item.idVisitante})"><i class="fa fa-trash text-maroon"></i></a>  </dt>
+
+                                </dl>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+      
     }
 
 

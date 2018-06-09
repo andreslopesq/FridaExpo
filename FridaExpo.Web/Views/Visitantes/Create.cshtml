@@ -13,12 +13,12 @@
                 <span class="fa fa-bars" style="margin-top:-50px"></span>
             </div>
             <nav>
-                    <ul>
-                        <li><a href="@Url.Action("Create", "Visitantes")"><span class="far fa-edit"></span>ALTA</a></li>
-                        <li><a href="@Url.Action("Index", "Visitantes")"><span class="far fa-list-alt"></span>CONSULTA</a></li>
-                        <li><a href="@Url.Action("Index", "Home")"><span class="fas fa-sign-out"></span>SALIR</a></li>
-                    </ul>
-                
+                <ul>
+                    <li><a href="@Url.Action("Create", "Visitantes")"><span class="far fa-edit"></span>ALTA</a></li>
+                    <li><a href="@Url.Action("Index", "Visitantes")"><span class="far fa-list-alt"></span>CONSULTA</a></li>
+                    <li><a href="@Url.Action("Index", "Home")"><span class="fas fa-sign-out"></span>SALIR</a></li>
+                </ul>
+
             </nav>
 
         </div>
@@ -26,7 +26,7 @@
 </header>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
@@ -35,27 +35,44 @@
         function foo() {
             document.getElementById("carga").style.display = "inline";
 
-         };
+        };
+    </script>
+
+    <script>
+        $(document).ready(function () {
+           // Obtener estados
+                $.ajax({
+                    type: "POST",
+                    url: "/procesar-estados.php",
+                    data: { estados : "Mexico" }
+                }).done(function(data){
+                    $("#jmr_contacto_estado").html(data);
+                });
+            // Obtener municipios
+            $("#jmr_contacto_estado").change(function(){
+                var estado = $("#jmr_contacto_estado option:selected").val();
+                $.ajax({
+                    type: "POST",
+                    url: "/procesar-estados.php",
+                    data: { municipios : estado }
+                }).done(function(data){
+                    $("#jmr_contacto_municipio").html(data);
+                });
+            });
+
+
+
+        });
     </script>
 
 
-    <div id="carga" style="position: relative; display:none">
-        <img src="~/img/89.gif" style="background:transparent center no-repeat" />
+    <div id="carga" style="display:none;position:fixed; margin-left:35%;margin-top:25%; z-index:100; background-color:white">
+        <img src="~/img/25.gif" style="background:transparent center no-repeat" />
     </div>
 
-   
-    <script>
-        function mayus(e) {
-            var tecla = e.value;
-            var tecla2 = tecla.toUpperCase();
-
-            document.getElementById("sasa").se= tecla2;
-       }
-    </script>
 
 
 
-   
     <div class="form-horizontal">
         <br />
         <br />
@@ -70,126 +87,104 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             <div class="col-lg-10">
-                @Html.EditorFor(model => model.nombreCliente, new { htmlAttributes = new { @class = "form-control", @placeholder = "NOMBRE >" , onkeypress = "mayus(this);" , @id= "sasa" }  })
+                @Html.EditorFor(model => model.nombreCliente, new { htmlAttributes = new { @class = "form-control", @placeholder = "NOMBRE >", @style = "text-transform:uppercase" } })
                 @Html.ValidationMessageFor(model => model.nombreCliente, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-lg-10">
-                @Html.EditorFor(model => model.nombreNegocio, new { htmlAttributes = new { @class = "form-control", @placeholder = "NEGOCIO >" } })
+                @Html.EditorFor(model => model.nombreNegocio, new { htmlAttributes = new { @class = "form-control", @placeholder = "NEGOCIO >", @style = "text-transform:uppercase" } })
                 @Html.ValidationMessageFor(model => model.nombreNegocio, "", new { @class = "text-danger" })
             </div>
         </div>
-
-       
-                
-                <div class="form-group">
-                    <div class="col-lg-10">
-                        @Html.EditorFor(model => model.domicilio, new { htmlAttributes = new { @class = "form-control", @placeholder = "DOMICILIO >" } })
-                        @Html.ValidationMessageFor(model => model.domicilio, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-lg-10">
-                        @Html.EditorFor(model => model.noExt, new { htmlAttributes = new { @class = "form-control", @placeholder = "NO. EXT. >" } })
-                        @Html.ValidationMessageFor(model => model.noExt, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-lg-10">
-                        @Html.EditorFor(model => model.colonia, new { htmlAttributes = new { @class = "form-control", @placeholder = "COLONIA >" } })
-                        @Html.ValidationMessageFor(model => model.colonia, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-lg-10">
-                        @Html.EditorFor(model => model.cp, new { htmlAttributes = new { @class = "form-control", @placeholder = "C.P. >" } })
-                        @Html.ValidationMessageFor(model => model.cp, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            
-               <div class="form-group">
-                    <div class="col-lg-10">
-                        @Html.EditorFor(model => model.localidad, new { htmlAttributes = new { @class = "form-control", @placeholder = "LOCALIDAD >" } })
-                        @Html.ValidationMessageFor(model => model.localidad, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.estado, new { htmlAttributes = new { @class = "form-control", @placeholder = "ESTADO >" } })
-                        @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.tel, new { htmlAttributes = new { @class = "form-control", @placeholder = "TELEFONO >" } })
-                        @Html.ValidationMessageFor(model => model.tel, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.cel, new { htmlAttributes = new { @class = "form-control", @placeholder = "CELULAR >" } })
-                        @Html.ValidationMessageFor(model => model.cel, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.celDos, new { htmlAttributes = new { @class = "form-control", @placeholder = "CELULAR DOS >" } })
-                        @Html.ValidationMessageFor(model => model.celDos, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @placeholder = "EMAIL >" } })
-                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.fechaRegistro, new { htmlAttributes = new { @class = "form-control", @placeholder = "FECHA REGISTRO >" } })
-                        @Html.ValidationMessageFor(model => model.fechaRegistro, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.folioVisita, new { htmlAttributes = new { @class = "form-control", @placeholder = "FOLIO >" } })
-                        @Html.ValidationMessageFor(model => model.folioVisita, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.idCliente, new { htmlAttributes = new { @class = "form-control", @placeholder = "CLIENTE >" } })
-                        @Html.ValidationMessageFor(model => model.idCliente, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Registrar" class="btn btn-danger" onclick="return foo();" style="background-color:rgb(235, 75, 159)"  />
-                      
-                    
-                      </div>
-                </div>
+        <div class="form-group">
+            <div class="col-lg-10">
+                <select id="jmr_contacto_estado"><option>Selecciona tu estado</option></select>
+                <select id="jmr_contacto_municipio"><option>Selecciona tu municipio</option></select>
             </div>
-            }
+        </div>
 
-          <!-- <div>
-                Html.ActionLink("Consultar", "Index")
+
+        <div class="form-group">
+            <div class="col-lg-10">
+                @Html.EditorFor(model => model.domicilio, new { htmlAttributes = new { @class = "form-control", @placeholder = "DOMICILIO >", @style = "text-transform:uppercase" } })
+                @Html.ValidationMessageFor(model => model.domicilio, "", new { @class = "text-danger" })
             </div>
-              --> 
+        </div>
 
-            @section Scripts {
-                @Scripts.Render("~/bundles/jqueryval")
-            }
+        <div class="form-group">
+            <div class="col-lg-10">
+                @Html.EditorFor(model => model.noExt, new { htmlAttributes = new { @class = "form-control", @placeholder = "NO. EXT. >", @style = "text-transform:uppercase" } })
+                @Html.ValidationMessageFor(model => model.noExt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-10">
+                @Html.EditorFor(model => model.colonia, new { htmlAttributes = new { @class = "form-control", @placeholder = "COLONIA >", @style = "text-transform:uppercase" } })
+                @Html.ValidationMessageFor(model => model.colonia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-10">
+                @Html.EditorFor(model => model.cp, new { htmlAttributes = new { @class = "form-control", @placeholder = "C.P. >", @style = "text-transform:uppercase" } })
+                @Html.ValidationMessageFor(model => model.cp, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-10">
+                @Html.EditorFor(model => model.localidad, new { htmlAttributes = new { @class = "form-control", @placeholder = "LOCALIDAD >", @style = "text-transform:uppercase" } })
+                @Html.ValidationMessageFor(model => model.localidad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.estado, new { htmlAttributes = new { @class = "form-control", @placeholder = "ESTADO >", @style = "text-transform:uppercase" } })
+                @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tel, new { htmlAttributes = new { @class = "form-control", @placeholder = "TELEFONO >" } })
+                @Html.ValidationMessageFor(model => model.tel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cel, new { htmlAttributes = new { @class = "form-control", @placeholder = "CELULAR >" } })
+                @Html.ValidationMessageFor(model => model.cel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.celDos, new { htmlAttributes = new { @class = "form-control", @placeholder = "CELULAR DOS >" } })
+                @Html.ValidationMessageFor(model => model.celDos, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @placeholder = "EMAIL >", @style = "text-transform:uppercase" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Registrar" class="btn btn-danger" onclick="return foo();" style="background-color:rgb(235, 75, 159)" />
+
+            </div>
+        </div>
+    </div>
+
+}
+
+
