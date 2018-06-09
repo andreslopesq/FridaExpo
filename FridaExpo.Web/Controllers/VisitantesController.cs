@@ -11,17 +11,54 @@
     using System.Web.Mvc;
     using FridaExpo.Web.Models;
     using FridaExpo.Web.Helpers;
+    using System.Linq.Expressions;
 
     public class VisitantesController : Controller
     {
 
         private FridaExpoDBContext db = new FridaExpoDBContext();
         private Funciones funciones= new Funciones();
+        
+        private DbSet<visitante> EntitySet {
+            get { return this.db.Set<visitante>(); }
+        }
 
         // GET: Visitantes
         public async Task<ActionResult> Index()
         {
             return View(await db.visitantes.ToListAsync());
+        }
+
+        // GET: Visitantes/Filter/5
+        public async Task<ActionResult> Filter(String cadena)
+        {
+
+            
+            //cadena = "MARIO";
+            string[] searchTerms = cadena.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            
+            IQueryable<visitante> Result = null;
+
+            try
+            {
+                IQueryable<visitante> query = this.EntitySet;
+
+                //foreach (string inc in include)
+                //{
+                //    query = query.Include(inc);
+                //}
+
+                var x = await query.Where(w => searchTerms.All(s => w.nombreCliente.Contains(s)) ||
+                            searchTerms.All(s => w.nombreNegocio.Contains(s)) ||
+                            searchTerms.All(s => w.localidad.Contains(s)) ||
+                            searchTerms.All(s => w.estado.Contains(s))).ToListAsync();
+                Result = x.AsQueryable();
+            }
+            catch
+            {
+                throw;
+            }
+            return View(Result.ToListAsync());
         }
 
         // GET: Visitantes/Details/5
@@ -50,13 +87,18 @@
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "idVisitante,nombreCliente,nombreNegocio,domicilio,noExt,colonia,cp,localidad,estado,tel,cel,celDos,email")] visitante visitante)
+        public async Task<ActionResult> Create([Bind(Include = "idVisitante,nombreCliente,nombreNegocio,localidad,estado,tel,cel,celDos,email")] visitante visitante)
         {
             if (ModelState.IsValid)
             {
                 visitante.fechaRegistro = DateTime.Today;
                 visitante.idCliente = 0;
                 visitante.folioVisita = funciones.GetFolio("visitante");
+                visitante.domicilio = "";
+                visitante.cp = "";
+                visitante.colonia = "";
+                visitante.noExt = "";
+                
 
                 db.visitantes.Add(visitante);
                 await db.SaveChangesAsync();

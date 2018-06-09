@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+<header>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="menu_bar">
+                <center><img src="~/img/LOGO FRIDA JEANS.png" height="70" width="180"></center>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="col-lg-12 col-md-12">
+    
+    <div class="small-box bg-green" >
+        <div class="inner">
+            <h3><a href="@Url.Action("Create", "Clientes")">CLIENTES</a></h3>
+         </div>
+    </div>
+
+
+    <div class="small-box bg-green" >
+        <div class="inner" >
+            <h3> <a href="@Url.Action("Create", "Visitantes")">VISITANTES </a></h3>
+        </div>
+       
+    </div>
+
+    <div class="small-box bg-green" >
+        <div class="inner">
+            <h3> <a href="@Url.Action("Create", "Productos")">PRODUCTOS </a></h3>
+        </div>
+           
+    </div>
+</div>

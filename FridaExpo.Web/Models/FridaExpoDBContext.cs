@@ -15,8 +15,9 @@ namespace FridaExpo.Web.Models
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
     
-        public FridaExpoDBContext() : base("name=FridaExpoDBContext")
+        public FridaExpoDBContext() : base("name=FridaExpoDBContext")//"Server=MYSQL5011.site4now.net;Database=db_9b318c_frida;Uid=9b318c_frida;Pwd=vpnstore2004"
         {
+            
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
