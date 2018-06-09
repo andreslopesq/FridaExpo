@@ -1,0 +1,180 @@
+﻿@model FridaExpo.Web.Models.visitante
+
+@{
+    ViewBag.Title = "Consulta";
+}
+
+<header>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="menu_bar">
+                <center><img src="~/img/LOGO FRIDA JEANS.png" height="70" width="180"></center>
+                <span class="fa fa-bars" style="margin-top:-50px"></span>
+            </div>
+            <nav>
+                <center>
+                    <ul>
+                        <li><a href="@Url.Action("Create", "Visitantes")"><span class="far fa-edit"></span>ALTA</a></li>
+                        <li><a href="@Url.Action("Index", "Visitantes")"><span class="far fa-list-alt"></span>CONSULTA</a></li>
+                        <li><a href="@Url.Action("Index", "Home")"><span class="fas fa-sign-out"></span>SALIR</a></li>
+                    </ul>
+                </center>
+            </nav>
+
+        </div>
+    </div>
+</header>
+<div class="col-lg-12">
+    <div class="box box-success">
+        <div class="box-body">
+
+
+
+            <div class="col-lg-12 col-md-12  no-padding col-lista text-center">
+                <div class="col-lg-1 col-md-1 padding-8">
+
+                    <dl class="">
+                        <dt>
+                            @Html.DisplayFor(model => model.nombreCliente)
+                        </dt>
+                        <dd>
+                            Nombre
+                        </dd>
+                    </dl>
+
+                    <dl class="">
+                        <dt>
+                            @Html.DisplayFor(model => model.nombreNegocio)
+                        </dt>
+
+                        <dd>
+                            Nombre Empresa
+                        </dd>
+                    </dl>
+                    <dl class="">
+                        <dt>
+                            @Html.DisplayFor(model => model.domicilio)
+                        </dt>
+
+                        <dd>
+                            Domicilio
+                        </dd>
+                    </dl>
+                    <dl class="">
+                        <dt>
+                            @Html.DisplayFor(model => model.noExt)
+                        </dt>
+
+                        <dd>
+                            No. Ext.
+                        </dd>
+                    </dl>
+
+                    <dl class="">
+                        <dt>
+                            @Html.DisplayFor(model => model.colonia)
+                        </dt>
+                        <dd>
+                            Colonia
+                        </dd>
+                    </dl>
+                    <dl class="">
+                        <dt>
+                            @Html.DisplayFor(model => model.cp)
+                        </dt>
+
+                        <dd>
+                            C.P.
+                        </dd>
+                    </dl>
+                    <dl class="">
+                        <dt>
+                            @Html.DisplayFor(model => model.localidad)
+                        </dt>
+
+                        <dd>
+                            Localidad
+                        </dd>
+                    </dl>
+                    <dl class="">
+                        <dt>
+                            @Html.DisplayFor(model => model.estado)
+                        </dt>
+
+                        <dd>
+                            Estado
+                        </dd>
+                    </dl>
+
+                    <dl class="">
+                        <dt>
+                            @Html.DisplayFor(model => model.tel)
+                        </dt>
+
+                        <dd>
+                            Teléfono
+                        </dd>
+                    </dl>
+
+                    <dl class="">
+                        <dt>
+                            @Html.DisplayFor(model => model.cel)
+                        </dt>
+
+                        <dd>
+                            Celular
+                        </dd>
+                    </dl>
+
+
+                    <dl class="">
+                        <dt>
+                            @Html.DisplayFor(model => model.celDos)
+                        </dt>
+
+                        <dd>
+                            Celular Dos
+                        </dd>
+                    </dl>
+
+                    <dl class="">
+                        <dt>
+                            @Html.DisplayFor(model => model.email)
+                        </dt>
+
+                        <dd>
+                            Email
+                        </dd>
+                    </dl>
+
+                    <dl class="">
+                        <dt>
+                            @Html.DisplayFor(model => model.fechaRegistro)
+                        </dt>
+
+                        <dd>
+                            Fecha Registro
+                        </dd>
+                    </dl>
+
+                    <dl class="">
+                        <dt>
+                            @Html.DisplayFor(model => model.folioVisita)
+                        </dt>
+
+                        <dd>
+                            Folio
+                        </dd>
+                    </dl>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="form-actions no-color ">
+    <a href="@Url.Action("Edit", "Visitantes", new { id = Model.idVisitante})"><i class="fa fa-pencil texto"> </i></a>
+</div>
